@@ -20,6 +20,16 @@
 		9EB5CEAC298D3E50005B4A7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CEAB298D3E50005B4A7C /* MainView.swift */; };
 		9EB5CEFE298D448D005B4A7C /* BaseFrame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB5CEF9298D4364005B4A7C /* BaseFrame.framework */; };
 		9EB5CEFF298D448D005B4A7C /* BaseFrame.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB5CEF9298D4364005B4A7C /* BaseFrame.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF01298DEEE4005B4A7C /* SearchView.swift */; };
+		9EB5CF04298DEF04005B4A7C /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF03298DEF04005B4A7C /* DiaryView.swift */; };
+		9EB5CF07298DEF48005B4A7C /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF06298DEF48005B4A7C /* FSCalendar */; };
+		9EB5CF0A298DEFDF005B4A7C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF09298DEFDF005B4A7C /* SnapKit */; };
+		9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF0C298E1FA3005B4A7C /* DetailView.swift */; };
+		9EB5CF0F298E1FAE005B4A7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF0E298E1FAE005B4A7C /* DetailViewController.swift */; };
+		9EB5CF15298E30D2005B4A7C /* DiaryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF14298E30D2005B4A7C /* DiaryEditViewController.swift */; };
+		9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */; };
+		9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */; };
+		9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +78,14 @@
 		9EB5CEA3298D3D71005B4A7C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9EB5CEAB298D3E50005B4A7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9EB5CEF3298D4364005B4A7C /* BaseFrame.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BaseFrame.xcodeproj; path = BaseFrame/BaseFrame.xcodeproj; sourceTree = SOURCE_ROOT; };
+		9EB5CF01298DEEE4005B4A7C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		9EB5CF03298DEF04005B4A7C /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		9EB5CF0C298E1FA3005B4A7C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		9EB5CF0E298E1FAE005B4A7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9EB5CF14298E30D2005B4A7C /* DiaryEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditViewController.swift; sourceTree = "<group>"; };
+		9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditView.swift; sourceTree = "<group>"; };
+		9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
+		9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB5CF0A298DEFDF005B4A7C /* SnapKit in Frameworks */,
 				9EB5CEFE298D448D005B4A7C /* BaseFrame.framework in Frameworks */,
+				9EB5CF07298DEF48005B4A7C /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +138,10 @@
 			isa = PBXGroup;
 			children = (
 				9EB5CEAA298D3E30005B4A7C /* SettingTab */,
+				9EB5CF11298E30AD005B4A7C /* DiaryEdit */,
+				9EB5CF10298E309E005B4A7C /* DiaryDetail */,
 				9EB5CEA9298D3E29005B4A7C /* DiaryTab */,
+				9EB5CF0B298E1F83005B4A7C /* SearchDetail */,
 				9EB5CEA8298D3E22005B4A7C /* SearchTab */,
 				9EB5CEA7298D3E16005B4A7C /* MainTab */,
 				9EB5CEA6298D3E0E005B4A7C /* Onboard */,
@@ -181,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				9EB5CE9D298D37AF005B4A7C /* SearchViewController.swift */,
+				9EB5CF01298DEEE4005B4A7C /* SearchView.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -189,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				9EB5CE9F298D37C4005B4A7C /* DiaryViewController.swift */,
+				9EB5CF03298DEF04005B4A7C /* DiaryView.swift */,
 			);
 			path = DiaryTab;
 			sourceTree = "<group>";
@@ -239,6 +264,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9EB5CF0B298E1F83005B4A7C /* SearchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CF0C298E1FA3005B4A7C /* DetailView.swift */,
+				9EB5CF0E298E1FAE005B4A7C /* DetailViewController.swift */,
+			);
+			path = SearchDetail;
+			sourceTree = "<group>";
+		};
+		9EB5CF10298E309E005B4A7C /* DiaryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */,
+				9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */,
+			);
+			path = DiaryDetail;
+			sourceTree = "<group>";
+		};
+		9EB5CF11298E30AD005B4A7C /* DiaryEdit */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CF14298E30D2005B4A7C /* DiaryEditViewController.swift */,
+				9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */,
+			);
+			path = DiaryEdit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +308,10 @@
 			dependencies = (
 			);
 			name = Sandeul;
+			packageProductDependencies = (
+				9EB5CF06298DEF48005B4A7C /* FSCalendar */,
+				9EB5CF09298DEFDF005B4A7C /* SnapKit */,
+			);
 			productName = Sandeul;
 			productReference = 9E03DCEF298D1C66006381E5 /* Sandeul.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +340,10 @@
 				Base,
 			);
 			mainGroup = 9E03DCE6298D1C66006381E5;
+			packageReferences = (
+				9EB5CF05298DEF48005B4A7C /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				9EB5CF08298DEFDF005B4A7C /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 9E03DCF0298D1C66006381E5 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -333,10 +393,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB5CF0F298E1FAE005B4A7C /* DetailViewController.swift in Sources */,
+				9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */,
+				9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */,
 				9EB5CE9E298D37AF005B4A7C /* SearchViewController.swift in Sources */,
 				9EB5CEAC298D3E50005B4A7C /* MainView.swift in Sources */,
+				9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */,
 				9E03DCF3298D1C66006381E5 /* AppDelegate.swift in Sources */,
+				9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */,
+				9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */,
+				9EB5CF15298E30D2005B4A7C /* DiaryEditViewController.swift in Sources */,
 				9EB5CEA2298D3CBB005B4A7C /* Color.swift in Sources */,
+				9EB5CF04298DEF04005B4A7C /* DiaryView.swift in Sources */,
 				9EB5CEA4298D3D71005B4A7C /* SettingViewController.swift in Sources */,
 				9EB5CE9A298D375F005B4A7C /* TabbarController.swift in Sources */,
 				9E03DCF5298D1C66006381E5 /* SceneDelegate.swift in Sources */,
@@ -551,6 +619,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9EB5CF05298DEF48005B4A7C /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		9EB5CF08298DEFDF005B4A7C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9EB5CF06298DEF48005B4A7C /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EB5CF05298DEF48005B4A7C /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		9EB5CF09298DEFDF005B4A7C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EB5CF08298DEFDF005B4A7C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9E03DCE7298D1C66006381E5 /* Project object */;
 }

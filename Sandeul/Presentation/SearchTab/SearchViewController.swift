@@ -6,24 +6,36 @@
 //
 
 import UIKit
+import BaseFrame
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController, UISearchResultsUpdating {
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print(text)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navDesign()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func navDesign() {
+        self.navigationItem.title = "Search"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
+        searchController.searchBar.placeholder = "산 이름을 검색하시오"
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        
+        
     }
-    */
+   
 
 }

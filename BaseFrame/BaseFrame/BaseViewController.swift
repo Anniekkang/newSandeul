@@ -15,14 +15,15 @@ open class BaseViewController: UIViewController {
         configure()
         constraint()
        
+        view.backgroundColor = .white
     }
     
 
-    public func configure() {
+    open func configure() {
         
     }
     
-    public func constraint() {
+    open func constraint() {
         
     }
 }
