@@ -10,7 +10,7 @@ import UIKit
 extension LaunchViewController : XMLParserDelegate {
     
     //delegate 임명
-    func setParser(from url: URL) {
+    public func setParser(from url: URL) {
         guard let parser = XMLParser(contentsOf: url) else { return }
         parser.delegate = self
         if parser.parse() {
@@ -25,7 +25,7 @@ extension LaunchViewController : XMLParserDelegate {
     }
     
     // XML 파서가 시작 태그를 만나면 호출됨
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName Name: String?, attributes attributeDict: [String : String] = [:]) {
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName Name: String?, attributes attributeDict: [String : String] = [:]) {
         
         print(elementName)
         currentElement = elementName
@@ -37,7 +37,7 @@ extension LaunchViewController : XMLParserDelegate {
     }
     
     // 그 태그에 담겨있는 문자열 전달
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
+    public func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         print("string : \(string)")
        
@@ -58,7 +58,7 @@ extension LaunchViewController : XMLParserDelegate {
     }
     
     // XML 파서가 종료 태그를 만나면 호출됨
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
        
         print("=======\(elementName)")

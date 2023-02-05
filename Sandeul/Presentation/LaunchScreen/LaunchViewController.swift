@@ -20,10 +20,17 @@ class LaunchViewController: BaseViewController {
         self.view = mainView
     }
     
+   
+    override func viewWillAppear(_ animated: Bool) {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let nav = UINavigationController(rootViewController: OnboardViewController())
+        sceneDelegate?.window?.rootViewController = nav
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
         
         DispatchQueue.global().async {
             guard let url = URL(string: Endpoint.mountainURL + Endpoint.firstRequest)
@@ -34,6 +41,7 @@ class LaunchViewController: BaseViewController {
             self.setParser(from: url)
             print("parsing done")
         }
+        
         
     }
     
