@@ -30,6 +30,13 @@
 		9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */; };
 		9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */; };
 		9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */; };
+		9EB5CF1F298E4C96005B4A7C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5CF1E298E4C96005B4A7C /* .gitignore */; };
+		9EB5CF23298E4CE6005B4A7C /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF22298E4CE6005B4A7C /* APIKey.swift */; };
+		9EB5CF25298E50E5005B4A7C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF24298E50E5005B4A7C /* Endpoint.swift */; };
+		9EB5CF2A298E6CFC005B4A7C /* XMLParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF29298E6CFC005B4A7C /* XMLParsing.swift */; };
+		9EB5CF2D298E6D54005B4A7C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF2C298E6D54005B4A7C /* LaunchViewController.swift */; };
+		9EB5CF2F298E6D63005B4A7C /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF2E298E6D63005B4A7C /* LaunchView.swift */; };
+		9EB5CF34298E6F7E005B4A7C /* MountainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF33298E6F7E005B4A7C /* MountainModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +93,13 @@
 		9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditView.swift; sourceTree = "<group>"; };
 		9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
 		9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
+		9EB5CF1E298E4C96005B4A7C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9EB5CF22298E4CE6005B4A7C /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		9EB5CF24298E50E5005B4A7C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		9EB5CF29298E6CFC005B4A7C /* XMLParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParsing.swift; sourceTree = "<group>"; };
+		9EB5CF2C298E6D54005B4A7C /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		9EB5CF2E298E6D63005B4A7C /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		9EB5CF33298E6F7E005B4A7C /* MountainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,7 @@
 		9E03DCE6298D1C66006381E5 = {
 			isa = PBXGroup;
 			children = (
+				9EB5CF1E298E4C96005B4A7C /* .gitignore */,
 				9EB5CEDE298D4285005B4A7C /* MyFramework */,
 				9E03DCF1298D1C66006381E5 /* Sandeul */,
 				9E03DCF0298D1C66006381E5 /* Products */,
@@ -145,6 +160,7 @@
 				9EB5CEA8298D3E22005B4A7C /* SearchTab */,
 				9EB5CEA7298D3E16005B4A7C /* MainTab */,
 				9EB5CEA6298D3E0E005B4A7C /* Onboard */,
+				9EB5CF2B298E6D1B005B4A7C /* LaunchScreen */,
 				9EB5CEA5298D3E07005B4A7C /* Tabbar */,
 			);
 			path = Presentation;
@@ -161,6 +177,7 @@
 		9E03DD08298D1D00006381E5 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				9EB5CF30298E6E8A005B4A7C /* Extension */,
 				9E03DD07298D1CFB006381E5 /* Resource */,
 			);
 			path = Global;
@@ -229,6 +246,8 @@
 		9EB5CEB3298D4101005B4A7C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9EB5CF21298E4CD9005B4A7C /* Manager */,
+				9EB5CF20298E4CD4005B4A7C /* Data */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -289,6 +308,40 @@
 				9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */,
 			);
 			path = DiaryEdit;
+			sourceTree = "<group>";
+		};
+		9EB5CF20298E4CD4005B4A7C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CF22298E4CE6005B4A7C /* APIKey.swift */,
+				9EB5CF24298E50E5005B4A7C /* Endpoint.swift */,
+				9EB5CF33298E6F7E005B4A7C /* MountainModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9EB5CF21298E4CD9005B4A7C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CF29298E6CFC005B4A7C /* XMLParsing.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9EB5CF2B298E6D1B005B4A7C /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CF2C298E6D54005B4A7C /* LaunchViewController.swift */,
+				9EB5CF2E298E6D63005B4A7C /* LaunchView.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		9EB5CF30298E6E8A005B4A7C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E03DCFF298D1C69006381E5 /* LaunchScreen.storyboard in Resources */,
+				9EB5CF1F298E4C96005B4A7C /* .gitignore in Resources */,
 				9E03DCFC298D1C69006381E5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,11 +448,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EB5CF0F298E1FAE005B4A7C /* DetailViewController.swift in Sources */,
+				9EB5CF2F298E6D63005B4A7C /* LaunchView.swift in Sources */,
 				9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */,
 				9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */,
 				9EB5CE9E298D37AF005B4A7C /* SearchViewController.swift in Sources */,
+				9EB5CF2A298E6CFC005B4A7C /* XMLParsing.swift in Sources */,
 				9EB5CEAC298D3E50005B4A7C /* MainView.swift in Sources */,
 				9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */,
+				9EB5CF25298E50E5005B4A7C /* Endpoint.swift in Sources */,
 				9E03DCF3298D1C66006381E5 /* AppDelegate.swift in Sources */,
 				9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */,
 				9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */,
@@ -409,6 +466,9 @@
 				9EB5CE9A298D375F005B4A7C /* TabbarController.swift in Sources */,
 				9E03DCF5298D1C66006381E5 /* SceneDelegate.swift in Sources */,
 				9EB5CEA0298D37C4005B4A7C /* DiaryViewController.swift in Sources */,
+				9EB5CF23298E4CE6005B4A7C /* APIKey.swift in Sources */,
+				9EB5CF2D298E6D54005B4A7C /* LaunchViewController.swift in Sources */,
+				9EB5CF34298E6F7E005B4A7C /* MountainModel.swift in Sources */,
 				9EB5CE9C298D37A2005B4A7C /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

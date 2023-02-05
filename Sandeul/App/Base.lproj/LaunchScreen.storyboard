@@ -18,13 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Hl7-Nh-uUh">
-                                <rect key="frame" x="137.66666666666666" y="403" width="117.66666666666666" height="46"/>
+                                <rect key="frame" x="121.66666666666669" y="351" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hl7-Nh-uUh" secondAttribute="height" multiplier="1:1" id="XqR-AV-tPx"/>
+                                    <constraint firstAttribute="height" constant="150" id="iWl-eH-bcg"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Hl7-Nh-uUh" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.3" id="5ko-PJ-CzF"/>
                             <constraint firstItem="Hl7-Nh-uUh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="E0C-v4-VAI"/>
                             <constraint firstItem="Hl7-Nh-uUh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="GV4-zE-Rbn"/>
                         </constraints>
