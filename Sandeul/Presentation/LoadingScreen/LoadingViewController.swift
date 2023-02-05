@@ -7,8 +7,12 @@
 
 import UIKit
 import BaseFrame
+import NVActivityIndicatorView
+
 
 class LoadingViewController: UIViewController {
+    
+    let indicator = NVActivityIndicatorView(frame: CGRect(x: UIScreen.main.bounds.size.width * 0.45,y:UIScreen.main.bounds.size.height * 0.6, width: 50, height: 50),type: .ballGridBeat,color: Color.shared.Green,padding: 0)
     
     let mainView = LoadingView()
     override func loadView() {
@@ -18,6 +22,10 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
+        
         view.backgroundColor = .white
         
         DispatchQueue.global().async {

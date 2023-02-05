@@ -44,6 +44,7 @@
 		9EB5CF46298FC437005B4A7C /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF45298FC437005B4A7C /* Toast */; };
 		9EB5CF49298FD723005B4A7C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF48298FD722005B4A7C /* LoadingViewController.swift */; };
 		9EB5CF4B298FD730005B4A7C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF4A298FD730005B4A7C /* LoadingView.swift */; };
+		9EB5CF4E298FDA1F005B4A7C /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF4D298FDA1F005B4A7C /* NVActivityIndicatorView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 			files = (
 				9EB5CF0A298DEFDF005B4A7C /* SnapKit in Frameworks */,
 				9EB5CF3F298FA1EF005B4A7C /* UIOnboarding in Frameworks */,
+				9EB5CF4E298FDA1F005B4A7C /* NVActivityIndicatorView in Frameworks */,
 				9EB5CEFE298D448D005B4A7C /* BaseFrame.framework in Frameworks */,
 				9EB5CF46298FC437005B4A7C /* Toast in Frameworks */,
 				9EB5CF07298DEF48005B4A7C /* FSCalendar in Frameworks */,
@@ -393,6 +395,7 @@
 				9EB5CF09298DEFDF005B4A7C /* SnapKit */,
 				9EB5CF3E298FA1EF005B4A7C /* UIOnboarding */,
 				9EB5CF45298FC437005B4A7C /* Toast */,
+				9EB5CF4D298FDA1F005B4A7C /* NVActivityIndicatorView */,
 			);
 			productName = Sandeul;
 			productReference = 9E03DCEF298D1C66006381E5 /* Sandeul.app */;
@@ -427,6 +430,7 @@
 				9EB5CF08298DEFDF005B4A7C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				9EB5CF3D298FA1EF005B4A7C /* XCRemoteSwiftPackageReference "UIOnboarding" */,
 				9EB5CF44298FC437005B4A7C /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				9EB5CF4C298FDA1F005B4A7C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 			);
 			productRefGroup = 9E03DCF0298D1C66006381E5 /* Products */;
 			projectDirPath = "";
@@ -749,6 +753,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		9EB5CF4C298FDA1F005B4A7C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -771,6 +783,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9EB5CF44298FC437005B4A7C /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		9EB5CF4D298FDA1F005B4A7C /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EB5CF4C298FDA1F005B4A7C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

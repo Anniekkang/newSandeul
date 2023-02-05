@@ -11,12 +11,13 @@ import Toast
 extension UIViewController {
     
     func showToast(view : UIView, Message : String, title : String) {
-        view.makeToast(Message, duration: 1.5,
+        view.makeToast(Message, duration: 3,
                                 point: CGPoint(x: view.center.x, y: 250),
                                title: title,
                                image: nil,
                        style: self.toastStyle(),
                                completion: nil)
+     
     }
     
     func toastStyle() -> ToastStyle {
@@ -29,6 +30,8 @@ extension UIViewController {
         return style
         
     }
+  
+    
     
     
 }
