@@ -50,15 +50,15 @@ extension UIViewController : XMLParserDelegate {
         print("string : \(string)")
        
         
-        if constant.currentElement == "mntninfohght" {
+        if constant.currentElement == "mntheight" {
             constant.model.altitude = string
-        } else if constant.currentElement == "mntninfopoflc" {
+        } else if constant.currentElement == "areanm" {
             constant.model.location = string
-        } else if constant.currentElement == "mntnnm" {
+        } else if constant.currentElement == "mntnm" {
             constant.model.title = string
             print("title : \(constant.model.title)")
-        } else if constant.currentElement == "mntnattchimageseq" {
-            constant.model.image = string
+        } else if constant.currentElement == "etccourse" {
+            constant.model.course = string
         }
         
         

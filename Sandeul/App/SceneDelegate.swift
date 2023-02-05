@@ -17,10 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let Scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: Scene)
-        
-        window?.rootViewController = LaunchViewController()
+        let nav = UINavigationController(rootViewController: OnboardViewController())
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
+//
+//        if SetUserdefaults.isFirstTime() {
+//            window?.rootViewController = LaunchViewController() //true
+//        } else {
+//            window?.rootViewController = TabbarController() //false
+//        }
+//
         
     }
 

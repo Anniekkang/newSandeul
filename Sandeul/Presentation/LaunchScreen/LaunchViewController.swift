@@ -28,7 +28,7 @@ class LaunchViewController: BaseViewController {
 
         
         DispatchQueue.global().async {
-            guard let url = URL(string: Endpoint.mountainURL + Endpoint.firstRequest) else { return }
+            guard let url = URL(string: Endpoint.mountainURL) else { return }
             
             print(url)
             self.setParser(from: url)
@@ -37,8 +37,7 @@ class LaunchViewController: BaseViewController {
             DispatchQueue.main.sync {
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                let nav = UINavigationController(rootViewController: OnboardViewController())
-                sceneDelegate?.window?.rootViewController = nav
+                sceneDelegate?.window?.rootViewController = TabbarController()
             }
         }
     

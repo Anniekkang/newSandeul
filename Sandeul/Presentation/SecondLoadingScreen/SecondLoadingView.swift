@@ -1,21 +1,21 @@
 //
-//  LoadingView.swift
+//  SecondLoadingView.swift
 //  Sandeul
 //
-//  Created by 나리강 on 2023/02/05.
+//  Created by 나리강 on 2023/02/06.
 //
 
 import UIKit
 import BaseFrame
 import SnapKit
 
-class LoadingView: BaseView {
+class SecondLoadingView: BaseView {
 
     let imageView : UIImageView = {
        let view = UIImageView()
         view.image = UIImage(named: "logo2")
         view.isOpaque = true
-        view.layer.opacity = 0.5
+        view.layer.opacity = 0.3
         return view
     }()
     

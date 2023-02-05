@@ -20,15 +20,6 @@ class OnboardViewController: UIViewController {
         onboardingController.delegate = self
         navigationController?.present(onboardingController, animated: false)
         
-        
-        DispatchQueue.global().async {
-            guard let url = URL(string: Endpoint.mountainURL + Endpoint.secondRequest) else { return }
-            
-            print(url)
-            self.setParser(from: url)
-            print("second parsing done")
-        }
-        
     }
     
 }
@@ -43,7 +34,7 @@ extension OnboardViewController: UIOnboardingViewControllerDelegate {
         
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        sceneDelegate?.window?.rootViewController = LoadingViewController()
+        sceneDelegate?.window?.rootViewController = LaunchViewController()
         
     }
     

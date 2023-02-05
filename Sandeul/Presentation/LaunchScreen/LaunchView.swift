@@ -16,6 +16,8 @@ class LaunchView: BaseView {
     let logoimage : UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "logo")
+        view.isOpaque = true
+        view.layer.opacity = 0.8
         return view
     }()
     
