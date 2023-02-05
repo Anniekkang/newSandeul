@@ -42,15 +42,11 @@
 		9EB5CF41298FA348005B4A7C /* OnboardingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF40298FA348005B4A7C /* OnboardingHelper.swift */; };
 		9EB5CF43298FC352005B4A7C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF42298FC352005B4A7C /* UIViewController+Extension.swift */; };
 		9EB5CF46298FC437005B4A7C /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF45298FC437005B4A7C /* Toast */; };
-		9EB5CF49298FD723005B4A7C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF48298FD722005B4A7C /* LoadingViewController.swift */; };
-		9EB5CF4B298FD730005B4A7C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF4A298FD730005B4A7C /* LoadingView.swift */; };
 		9EB5CF4E298FDA1F005B4A7C /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF4D298FDA1F005B4A7C /* NVActivityIndicatorView */; };
 		9EB5CF51298FEBEA005B4A7C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF50298FEBEA005B4A7C /* Realm */; };
 		9EB5CF53298FEBEA005B4A7C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF52298FEBEA005B4A7C /* RealmSwift */; };
 		9EB5CF55298FEC12005B4A7C /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF54298FEC12005B4A7C /* Mountain.swift */; };
 		9EB5CF58298FEDD2005B4A7C /* SetUserdefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF57298FEDD2005B4A7C /* SetUserdefaults.swift */; };
-		9EB5CF5B29905B46005B4A7C /* SecondLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF5A29905B46005B4A7C /* SecondLoadingView.swift */; };
-		9EB5CF5D29905B5A005B4A7C /* SecondLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF5C29905B5A005B4A7C /* SecondLoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,12 +113,8 @@
 		9EB5CF39298F98B5005B4A7C /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		9EB5CF40298FA348005B4A7C /* OnboardingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHelper.swift; sourceTree = "<group>"; };
 		9EB5CF42298FC352005B4A7C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		9EB5CF48298FD722005B4A7C /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		9EB5CF4A298FD730005B4A7C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9EB5CF54298FEC12005B4A7C /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		9EB5CF57298FEDD2005B4A7C /* SetUserdefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserdefaults.swift; sourceTree = "<group>"; };
-		9EB5CF5A29905B46005B4A7C /* SecondLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoadingView.swift; sourceTree = "<group>"; };
-		9EB5CF5C29905B5A005B4A7C /* SecondLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +179,6 @@
 				9EB5CF0B298E1F83005B4A7C /* SearchDetail */,
 				9EB5CEA8298D3E22005B4A7C /* SearchTab */,
 				9EB5CEA7298D3E16005B4A7C /* MainTab */,
-				9EB5CF5929905B2A005B4A7C /* SecondLoadingScreen */,
-				9EB5CF47298FD701005B4A7C /* LoadingScreen */,
 				9EB5CF2B298E6D1B005B4A7C /* LaunchScreen */,
 				9EB5CEA6298D3E0E005B4A7C /* Onboard */,
 				9EB5CEA5298D3E07005B4A7C /* Tabbar */,
@@ -379,30 +369,12 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		9EB5CF47298FD701005B4A7C /* LoadingScreen */ = {
-			isa = PBXGroup;
-			children = (
-				9EB5CF48298FD722005B4A7C /* LoadingViewController.swift */,
-				9EB5CF4A298FD730005B4A7C /* LoadingView.swift */,
-			);
-			path = LoadingScreen;
-			sourceTree = "<group>";
-		};
 		9EB5CF56298FECFF005B4A7C /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				9EB5CF54298FEC12005B4A7C /* Mountain.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		9EB5CF5929905B2A005B4A7C /* SecondLoadingScreen */ = {
-			isa = PBXGroup;
-			children = (
-				9EB5CF5A29905B46005B4A7C /* SecondLoadingView.swift */,
-				9EB5CF5C29905B5A005B4A7C /* SecondLoadingViewController.swift */,
-			);
-			path = SecondLoadingScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,9 +494,7 @@
 				9EB5CF2F298E6D63005B4A7C /* LaunchView.swift in Sources */,
 				9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */,
 				9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */,
-				9EB5CF4B298FD730005B4A7C /* LoadingView.swift in Sources */,
 				9EB5CE9E298D37AF005B4A7C /* SearchViewController.swift in Sources */,
-				9EB5CF5B29905B46005B4A7C /* SecondLoadingView.swift in Sources */,
 				9EB5CF2A298E6CFC005B4A7C /* XMLParsing.swift in Sources */,
 				9EB5CEAC298D3E50005B4A7C /* MainView.swift in Sources */,
 				9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */,
@@ -544,11 +514,9 @@
 				9EB5CF58298FEDD2005B4A7C /* SetUserdefaults.swift in Sources */,
 				9EB5CF55298FEC12005B4A7C /* Mountain.swift in Sources */,
 				9EB5CF23298E4CE6005B4A7C /* APIKey.swift in Sources */,
-				9EB5CF49298FD723005B4A7C /* LoadingViewController.swift in Sources */,
 				9EB5CF2D298E6D54005B4A7C /* LaunchViewController.swift in Sources */,
 				9EB5CF34298E6F7E005B4A7C /* MountainModel.swift in Sources */,
 				9EB5CE9C298D37A2005B4A7C /* MainViewController.swift in Sources */,
-				9EB5CF5D29905B5A005B4A7C /* SecondLoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

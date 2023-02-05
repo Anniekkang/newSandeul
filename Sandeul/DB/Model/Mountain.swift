@@ -15,10 +15,11 @@ class Mountain : Object {
     @Persisted var title : String
     @Persisted var altitude : String
     @Persisted var location : String
-    @Persisted var course : String?
-    @Persisted(primaryKey: true) var objectId : ObjectId
+    @Persisted var course : String
     
-    convenience init(title : String, altitude : String, location : String, course : String?){
+    @Persisted(primaryKey: true) var objectId : ObjectId //id
+    
+    convenience init(title : String, altitude : String, location : String, course : String){
         self.init()
         self.title = title
         self.altitude = altitude
