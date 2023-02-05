@@ -64,28 +64,3 @@ struct UIOnboardingHelper {
 }
 
 
-extension OnboardViewController: UIOnboardingViewControllerDelegate {
-    
-    func didFinishOnboarding(onboardingViewController: UIOnboardingViewController) {
-        onboardingViewController.modalTransitionStyle = .crossDissolve
-        onboardingViewController.dismiss(animated: true, completion: nil)
-        
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
-        sceneDelegate?.window?.rootViewController = TabbarController()
-        
-    }
-}
-
-
-extension UIOnboardingViewConfiguration {
-    // UIOnboardingViewController init
-    static func setUp() -> UIOnboardingViewConfiguration {
-        return .init(appIcon: UIOnboardingHelper.setUpIcon(),
-                     firstTitleLine: UIOnboardingHelper.setUpFirstTitleLine(),
-                     secondTitleLine: UIOnboardingHelper.setUpSecondTitleLine(),
-                     features: UIOnboardingHelper.setUpFeatures(),
-                     textViewConfiguration: UIOnboardingHelper.setUpNotice(),
-                     buttonConfiguration: UIOnboardingHelper.setUpButton())
-    }
-}

@@ -39,7 +39,11 @@
 		9EB5CF34298E6F7E005B4A7C /* MountainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF33298E6F7E005B4A7C /* MountainModel.swift */; };
 		9EB5CF3A298F98B5005B4A7C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF39298F98B5005B4A7C /* OnboardViewController.swift */; };
 		9EB5CF3F298FA1EF005B4A7C /* UIOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF3E298FA1EF005B4A7C /* UIOnboarding */; };
-		9EB5CF41298FA348005B4A7C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF40298FA348005B4A7C /* Extension.swift */; };
+		9EB5CF41298FA348005B4A7C /* OnboardingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF40298FA348005B4A7C /* OnboardingHelper.swift */; };
+		9EB5CF43298FC352005B4A7C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF42298FC352005B4A7C /* UIViewController+Extension.swift */; };
+		9EB5CF46298FC437005B4A7C /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF45298FC437005B4A7C /* Toast */; };
+		9EB5CF49298FD723005B4A7C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF48298FD722005B4A7C /* LoadingViewController.swift */; };
+		9EB5CF4B298FD730005B4A7C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF4A298FD730005B4A7C /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +108,10 @@
 		9EB5CF2E298E6D63005B4A7C /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		9EB5CF33298E6F7E005B4A7C /* MountainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainModel.swift; sourceTree = "<group>"; };
 		9EB5CF39298F98B5005B4A7C /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
-		9EB5CF40298FA348005B4A7C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		9EB5CF40298FA348005B4A7C /* OnboardingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHelper.swift; sourceTree = "<group>"; };
+		9EB5CF42298FC352005B4A7C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		9EB5CF48298FD722005B4A7C /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		9EB5CF4A298FD730005B4A7C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +122,7 @@
 				9EB5CF0A298DEFDF005B4A7C /* SnapKit in Frameworks */,
 				9EB5CF3F298FA1EF005B4A7C /* UIOnboarding in Frameworks */,
 				9EB5CEFE298D448D005B4A7C /* BaseFrame.framework in Frameworks */,
+				9EB5CF46298FC437005B4A7C /* Toast in Frameworks */,
 				9EB5CF07298DEF48005B4A7C /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +173,7 @@
 				9EB5CF0B298E1F83005B4A7C /* SearchDetail */,
 				9EB5CEA8298D3E22005B4A7C /* SearchTab */,
 				9EB5CEA7298D3E16005B4A7C /* MainTab */,
+				9EB5CF47298FD701005B4A7C /* LoadingScreen */,
 				9EB5CEA6298D3E0E005B4A7C /* Onboard */,
 				9EB5CF2B298E6D1B005B4A7C /* LaunchScreen */,
 				9EB5CEA5298D3E07005B4A7C /* Tabbar */,
@@ -211,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				9EB5CF39298F98B5005B4A7C /* OnboardViewController.swift */,
-				9EB5CF40298FA348005B4A7C /* Extension.swift */,
+				9EB5CF40298FA348005B4A7C /* OnboardingHelper.swift */,
 			);
 			path = Onboard;
 			sourceTree = "<group>";
@@ -348,8 +357,18 @@
 		9EB5CF30298E6E8A005B4A7C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9EB5CF42298FC352005B4A7C /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9EB5CF47298FD701005B4A7C /* LoadingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5CF48298FD722005B4A7C /* LoadingViewController.swift */,
+				9EB5CF4A298FD730005B4A7C /* LoadingView.swift */,
+			);
+			path = LoadingScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +392,7 @@
 				9EB5CF06298DEF48005B4A7C /* FSCalendar */,
 				9EB5CF09298DEFDF005B4A7C /* SnapKit */,
 				9EB5CF3E298FA1EF005B4A7C /* UIOnboarding */,
+				9EB5CF45298FC437005B4A7C /* Toast */,
 			);
 			productName = Sandeul;
 			productReference = 9E03DCEF298D1C66006381E5 /* Sandeul.app */;
@@ -406,6 +426,7 @@
 				9EB5CF05298DEF48005B4A7C /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				9EB5CF08298DEFDF005B4A7C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				9EB5CF3D298FA1EF005B4A7C /* XCRemoteSwiftPackageReference "UIOnboarding" */,
+				9EB5CF44298FC437005B4A7C /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 9E03DCF0298D1C66006381E5 /* Products */;
 			projectDirPath = "";
@@ -462,15 +483,17 @@
 				9EB5CF2F298E6D63005B4A7C /* LaunchView.swift in Sources */,
 				9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */,
 				9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */,
+				9EB5CF4B298FD730005B4A7C /* LoadingView.swift in Sources */,
 				9EB5CE9E298D37AF005B4A7C /* SearchViewController.swift in Sources */,
 				9EB5CF2A298E6CFC005B4A7C /* XMLParsing.swift in Sources */,
 				9EB5CEAC298D3E50005B4A7C /* MainView.swift in Sources */,
 				9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */,
 				9EB5CF25298E50E5005B4A7C /* Endpoint.swift in Sources */,
-				9EB5CF41298FA348005B4A7C /* Extension.swift in Sources */,
+				9EB5CF41298FA348005B4A7C /* OnboardingHelper.swift in Sources */,
 				9E03DCF3298D1C66006381E5 /* AppDelegate.swift in Sources */,
 				9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */,
 				9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */,
+				9EB5CF43298FC352005B4A7C /* UIViewController+Extension.swift in Sources */,
 				9EB5CF15298E30D2005B4A7C /* DiaryEditViewController.swift in Sources */,
 				9EB5CEA2298D3CBB005B4A7C /* Color.swift in Sources */,
 				9EB5CF04298DEF04005B4A7C /* DiaryView.swift in Sources */,
@@ -479,6 +502,7 @@
 				9E03DCF5298D1C66006381E5 /* SceneDelegate.swift in Sources */,
 				9EB5CEA0298D37C4005B4A7C /* DiaryViewController.swift in Sources */,
 				9EB5CF23298E4CE6005B4A7C /* APIKey.swift in Sources */,
+				9EB5CF49298FD723005B4A7C /* LoadingViewController.swift in Sources */,
 				9EB5CF2D298E6D54005B4A7C /* LaunchViewController.swift in Sources */,
 				9EB5CF34298E6F7E005B4A7C /* MountainModel.swift in Sources */,
 				9EB5CE9C298D37A2005B4A7C /* MainViewController.swift in Sources */,
@@ -717,6 +741,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		9EB5CF44298FC437005B4A7C /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -734,6 +766,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9EB5CF3D298FA1EF005B4A7C /* XCRemoteSwiftPackageReference "UIOnboarding" */;
 			productName = UIOnboarding;
+		};
+		9EB5CF45298FC437005B4A7C /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EB5CF44298FC437005B4A7C /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

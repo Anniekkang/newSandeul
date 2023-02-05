@@ -7,7 +7,14 @@
 
 import UIKit
 
-extension LaunchViewController : XMLParserDelegate {
+
+extension UIViewController : XMLParserDelegate {
+    
+    struct constant {
+        static var currentElement : String = "currentElement"
+        static var model : MountainModel = MountainModel()
+        static var models : [MountainModel] = []
+    }
     
     //delegate 임명
     public func setParser(from url: URL) {
@@ -27,11 +34,12 @@ extension LaunchViewController : XMLParserDelegate {
     // XML 파서가 시작 태그를 만나면 호출됨
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName Name: String?, attributes attributeDict: [String : String] = [:]) {
         
+        
         print(elementName)
-        currentElement = elementName
+        constant.currentElement = elementName
         
         if elementName == "item" {
-            model = MountainModel()
+            constant.model = MountainModel()
         }
         
     }
@@ -42,15 +50,15 @@ extension LaunchViewController : XMLParserDelegate {
         print("string : \(string)")
        
         
-        if currentElement == "mntninfohght" {
-            model.altitude = string
-        } else if currentElement == "mntninfopoflc" {
-            model.location = string
-        } else if currentElement == "mntnnm" {
-            model.title = string
-            print("title : \(model.title)")
-        } else if currentElement == "mntnattchimageseq" {
-            model.image = string
+        if constant.currentElement == "mntninfohght" {
+            constant.model.altitude = string
+        } else if constant.currentElement == "mntninfopoflc" {
+            constant.model.location = string
+        } else if constant.currentElement == "mntnnm" {
+            constant.model.title = string
+            print("title : \(constant.model.title)")
+        } else if constant.currentElement == "mntnattchimageseq" {
+            constant.model.image = string
         }
         
         
@@ -63,10 +71,10 @@ extension LaunchViewController : XMLParserDelegate {
        
         print("=======\(elementName)")
         if elementName == "item" {
-            models.append(model)
-            print("model : \(model.title)")
+            constant.models.append(constant.model)
+            print("model : \(constant.model.title)")
         }
-        print("총갯수 : \(models.count)")
+        print("총갯수 : \(constant.models.count)")
     }
     
     
