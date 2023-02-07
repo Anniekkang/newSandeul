@@ -10,7 +10,7 @@ import CoreLocation
 
 extension MainViewController : CLLocationManagerDelegate {
     
-    //called when location is updated
+    //called when location is updated - get currentLocation & currentRegion
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             currentLatitude = coordinate.latitude
@@ -42,6 +42,52 @@ extension MainViewController : CLLocationManagerDelegate {
         
     }
     
+    //Request LocationAuthorization
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+            switch status {
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("GPS 권한 설정됨")
+              //  self.locationManager.startUpdatingLocation() // 중요!
+            case .restricted, .notDetermined:
+                print("GPS 권한 설정되지 않음")
+                self.locationManager.requestWhenInUseAuthorization()
+            case .denied:
+                print("GPS 권한 요청 거부됨")
+                getUserPermisson()
+            default:
+                print("GPS: Default")
+            }
+        }
+    
+    
+    func getUserPermisson(){
+        
+        let requestAlert = UIAlertController(title: "위치정보 이용", message: "'근처의 산' 서비스를 이용할 수 없습니다.기기의 '설정 > 개인정보보호'에서 위치서비스를 켜주세요 ", preferredStyle: .alert)
+        let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _
+            in
+            if let appSetting = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(appSetting)
+            }
+        }
+        let cancel = UIAlertAction(title: "서비스 이용 안함", style: .default) { _ in
+           
+            self.mainView.makeToast("'같은 지역에 있는 산'은 \n '경기도' 기준으로 보여집니다", duration: 1.5,
+                                    point: CGPoint(x: self.mainView.center.x, y: 250),
+                                   title: "위치서비스 거부",
+                                   image: nil,
+                                    style:  self.toastStyle(),
+                                   completion: nil)
+            
+        }
+        
+        requestAlert.addAction(goSetting)
+        requestAlert.addAction(cancel)
+        
+        present(requestAlert, animated: true)
+        
+        
+    }
     
     
     
