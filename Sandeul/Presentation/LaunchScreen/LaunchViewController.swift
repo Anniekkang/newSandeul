@@ -14,7 +14,8 @@ class LaunchViewController: BaseViewController {
     
     let realm = try! Realm()
     
-    var tasks : Results<Mountain>! {
+    //data를 담을 data
+    var mountainData : Results<Mountain>! {
         didSet {
             
             
@@ -61,8 +62,6 @@ class LaunchViewController: BaseViewController {
     
     
     func realmSave() {
-        
-            
             do {
                 try self.realm.write {
                     
@@ -72,9 +71,10 @@ class LaunchViewController: BaseViewController {
                         let location = constant.models[i].location
                         let course = constant.models[i].course
                         
-                        let task = Mountain(title: title, altitude: altitude, location: location, course: course)
+                        let mountainData = Mountain(title: title, altitude: altitude, location: location, course: course)
                         
-                        self.realm.add(task)
+                        //realm에 result<Mountain> 저장
+                        self.realm.add(mountainData)
                     }
                 }
             } catch let error as NSError {
@@ -88,8 +88,9 @@ class LaunchViewController: BaseViewController {
         
     }
     
+    //
     func fetchRealm(){
-        tasks = realm.objects(Mountain.self).sorted(byKeyPath: "title", ascending: true)
+        mountainData = realm.objects(Mountain.self).sorted(byKeyPath: "title", ascending: true)
         print("==Realm is located at:", realm.configuration.fileURL!)
         
         

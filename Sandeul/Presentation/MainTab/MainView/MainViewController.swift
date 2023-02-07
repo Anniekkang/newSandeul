@@ -8,9 +8,15 @@
 import UIKit
 import BaseFrame
 import SnapKit
+import CoreLocation
 
 class MainViewController: BaseViewController {
     
+    
+    var currentLongtitude : CLLocationDegrees?
+    var currentLatitude : CLLocationDegrees?
+    var currentLocation : String = "서울특별시"
+    var locationManager : CLLocationManager!
     
     var array = globalConstant.shared.mountainImages.shuffled()
     
@@ -23,9 +29,19 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
         
         navDesign()
+        locationSetup()
+        
+        
         
     }
     
+    func locationSetup() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization() //권한 요청
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
     
     
     func navDesign() {

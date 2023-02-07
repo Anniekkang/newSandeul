@@ -58,6 +58,8 @@
 		9EC5C1102990DF5200B93BCB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C10F2990DF5200B93BCB /* Font.swift */; };
 		9EC5C1132990E51C00B93BCB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1122990E51C00B93BCB /* HeaderView.swift */; };
 		9EC5C1182991D6F600B93BCB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1172991D6F600B93BCB /* Constant.swift */; };
+		9EC5C11A2991ED1800B93BCB /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1192991ED1800B93BCB /* DetailTableViewCell.swift */; };
+		9EC5C11F29921E9500B93BCB /* CoreLocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		9EC5C10F2990DF5200B93BCB /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		9EC5C1122990E51C00B93BCB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		9EC5C1172991D6F600B93BCB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		9EC5C1192991ED1800B93BCB /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +352,7 @@
 			children = (
 				9EB5CF0C298E1FA3005B4A7C /* DetailView.swift */,
 				9EB5CF0E298E1FAE005B4A7C /* DetailViewController.swift */,
+				9EC5C1192991ED1800B93BCB /* DetailTableViewCell.swift */,
 			);
 			path = SearchDetail;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 		9EC5C1072990DE5000B93BCB /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */,
 				9EB5CE9B298D37A2005B4A7C /* MainViewController.swift */,
 				9EB5CEAB298D3E50005B4A7C /* MainView.swift */,
 			);
@@ -587,6 +593,7 @@
 				9EB5CF41298FA348005B4A7C /* OnboardingHelper.swift in Sources */,
 				9E03DCF3298D1C66006381E5 /* AppDelegate.swift in Sources */,
 				9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */,
+				9EC5C11F29921E9500B93BCB /* CoreLocationExtension.swift in Sources */,
 				9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */,
 				9EB5CF43298FC352005B4A7C /* UIViewController+Extension.swift in Sources */,
 				9E66B33429909D7C00D22126 /* reuseIdentifier.swift in Sources */,
@@ -600,6 +607,7 @@
 				9EB5CE9A298D375F005B4A7C /* TabbarController.swift in Sources */,
 				9E03DCF5298D1C66006381E5 /* SceneDelegate.swift in Sources */,
 				9EB5CEA0298D37C4005B4A7C /* DiaryViewController.swift in Sources */,
+				9EC5C11A2991ED1800B93BCB /* DetailTableViewCell.swift in Sources */,
 				9EB5CF58298FEDD2005B4A7C /* SetUserdefaults.swift in Sources */,
 				9EB5CF6629907A8E005B4A7C /* ThirdCollectionViewCell.swift in Sources */,
 				9EB5CF55298FEC12005B4A7C /* Mountain.swift in Sources */,

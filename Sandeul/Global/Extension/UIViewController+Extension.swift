@@ -26,7 +26,7 @@ extension UIViewController {
         style.messageColor = Color.shared.Gray
         style.messageAlignment = .center
         style.titleAlignment = .center
-        style.fadeDuration = 0.8
+        style.fadeDuration = 2
         return style
         
     }

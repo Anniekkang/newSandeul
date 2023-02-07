@@ -16,8 +16,17 @@ class DetailView: BaseView {
         return view
     }()
     
+    let titleLabel : UILabel = {
+        let label = UILabel()
+        label.text = "기본산"
+        label.textColor = Color.shared.black
+        label.font = variousFont.largebold
+        return label
+    }()
+    
     let lineView : UIView = {
        let view = UIView()
+        view.backgroundColor = Color.shared.Gray
         return view
     }()
     
@@ -27,11 +36,26 @@ class DetailView: BaseView {
     }()
     
     override func configure() {
-        
+        [background, lineView, tableView].forEach {
+            self.addSubview($0)
+        }
+        background.addSubview(titleLabel)
     }
     
     override func constraints() {
-        
+        background.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.3)
+        }
+        lineView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(background.snp.bottom)
+            make.height.equalTo(1)
+        }
+        tableView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(lineView.snp.bottom)
+        }
     }
     
     
