@@ -11,7 +11,7 @@ import BaseFrame
 class MainView: BaseView {
 
     let collectionView : UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewCompositionalLayout { section -> NSCollectionLayoutSection? in
+        let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewCompositionalLayout { section, env -> NSCollectionLayoutSection? in
             switch sectionArray.section[section] {
             case HomeSection.First:
                 return getLayoutFirstSection()
@@ -46,12 +46,12 @@ class MainView: BaseView {
          heightDimension: .fractionalHeight(1.0)
        )
        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-       item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 12, trailing: 10)
+       item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 20, trailing: 10)
        
        // group
        let groupSize = NSCollectionLayoutSize(
          widthDimension: .fractionalWidth(0.9),
-         heightDimension: .fractionalHeight(0.3)
+         heightDimension: .fractionalHeight(0.35)
        )
        let group = NSCollectionLayoutGroup.horizontal(
          layoutSize: groupSize,
@@ -60,7 +60,7 @@ class MainView: BaseView {
        
        let headerSize = NSCollectionLayoutSize(
          widthDimension: .fractionalWidth(0.9),
-         heightDimension: .absolute(50)
+         heightDimension: .absolute(20)
      
        )
        let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -85,12 +85,12 @@ class MainView: BaseView {
            heightDimension: .fractionalHeight(1)
          )
          let item = NSCollectionLayoutItem(layoutSize: itemSize)
-         item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 12, trailing: 10)
+         item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 20, trailing: 10)
          
          // group
          let groupSize = NSCollectionLayoutSize(
-           widthDimension: .fractionalWidth(1),
-           heightDimension: .fractionalHeight(0.8)
+            widthDimension: .fractionalWidth(1),
+           heightDimension: .fractionalHeight(0.2)
          )
          let group = NSCollectionLayoutGroup.horizontal(
              layoutSize: groupSize,
@@ -100,7 +100,7 @@ class MainView: BaseView {
         
          let headerSize = NSCollectionLayoutSize(
            widthDimension: .fractionalWidth(0.9),
-           heightDimension: .absolute(50)
+           heightDimension: .absolute(20)
        
          )
          let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -127,12 +127,12 @@ class MainView: BaseView {
           heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 12, trailing: 10)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 15, trailing: 10)
         
         // group
         let groupSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1),
-          heightDimension: .fractionalHeight(0.8)
+          heightDimension: .fractionalHeight(0.3)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
@@ -142,7 +142,7 @@ class MainView: BaseView {
        
         let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(0.9),
-          heightDimension: .absolute(50)
+          heightDimension: .absolute(20)
       
         )
         let header = NSCollectionLayoutBoundarySupplementaryItem(

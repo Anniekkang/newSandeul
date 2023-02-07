@@ -2,7 +2,7 @@
 //  BaseFrame.h
 //  BaseFrame
 //
-//  Created by 나리강 on 2023/02/03.
+//  Created by 나리강 on 2023/02/06.
 //
 
 #import <Foundation/Foundation.h>

@@ -21,13 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
-//
-//        if SetUserdefaults.isFirstTime() {
-//            window?.rootViewController = LaunchViewController() //true
-//        } else {
-//            window?.rootViewController = TabbarController() //false
-//        }
-//
+
+        if SetUserdefaults.isFirstTime() {
+            window?.rootViewController = OnboardViewController() //true
+        } else {
+            window?.rootViewController = TabbarController() //false
+        }
+
         
     }
 

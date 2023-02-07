@@ -48,7 +48,7 @@ class LaunchViewController: BaseViewController {
                 
                 self.realmSave()
                 self.fetchRealm()
-                
+                UserDefaults.standard.set("Yes", forKey: "isFirstTime")
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 sceneDelegate?.window?.rootViewController = TabbarController()

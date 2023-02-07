@@ -11,6 +11,11 @@ import SnapKit
 
 class MainViewController: BaseViewController {
     
+    let mainView = MainView()
+    override func loadView() {
+        self.view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +44,34 @@ class MainViewController: BaseViewController {
         }
     }
     
-    
+    override func configure() {
+        mainView.collectionView.delegate = self
+        mainView.collectionView.dataSource = self
+//        mainView.collectionView.register(FirstCollectionViewCell.self, forCellWithReuseIdentifier: FirstCollectionViewCell.reuseIdentifier)
+//        mainView.collectionView.register(ElseCollectionViewCell.self, forCellWithReuseIdentifier: ElseCollectionViewCell.reuseIdentifier)
+//
+    }
 
    
     
 }
+
+extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+   
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 5
+        } else
+            return 1
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+    
+    
+    
+}
+

@@ -2,7 +2,7 @@
 //  BaseViewController.swift
 //  BaseFrame
 //
-//  Created by 나리강 on 2023/02/03.
+//  Created by 나리강 on 2023/02/06.
 //
 
 import UIKit
@@ -13,17 +13,21 @@ open class BaseViewController: UIViewController {
         super.viewDidLoad()
 
         configure()
-        constraint()
-       
+        constraints()
+        
         view.backgroundColor = .white
     }
     
-
-    open func configure() {
+    
+    open func configure(){
         
     }
     
-    open func constraint() {
+    open func constraints(){
         
     }
+    
+
+    
+    
 }
