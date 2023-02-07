@@ -11,6 +11,9 @@ import SnapKit
 
 class MainViewController: BaseViewController {
     
+    
+    var array = globalConstant.shared.mountainImages.shuffled()
+    
     let mainView = MainView()
     override func loadView() {
         self.view = mainView
@@ -20,7 +23,7 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
         
         navDesign()
-        navLogo()
+        
     }
     
     
@@ -28,7 +31,6 @@ class MainViewController: BaseViewController {
     func navDesign() {
         self.navigationItem.title = "Sandeul"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
     
     func navLogo() {
@@ -41,6 +43,7 @@ class MainViewController: BaseViewController {
             make.leading.equalToSuperview().offset(150)
             make.height.equalToSuperview().multipliedBy(0.6)
         }
+       
     }
     
     override func configure() {
@@ -53,9 +56,8 @@ class MainViewController: BaseViewController {
 
     }
 
-   
-    
 }
+
 
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource {
    
@@ -73,8 +75,12 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
+            
         case 0 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
+            
+            
+            cell.imageView.image = UIImage(named: array[indexPath.item])
             
             return cell
         case 1 :
@@ -82,9 +88,13 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         case 2 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
+            
+            cell.mountainView.image = UIImage(named: array.randomElement() ?? "산1")
             return cell
         case 3 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
+            
+            cell.mountainView.image = UIImage(named: array.randomElement() ?? "산2")
             return cell
         default :
             return UICollectionViewCell()

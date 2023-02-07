@@ -52,7 +52,7 @@ class DiaryViewController: BaseViewController {
         calendar.scrollEnabled = true
         calendar.scrollDirection = .horizontal
         calendar.headerHeight = 60
-        calendar.appearance.headerTitleColor = .black
+        calendar.appearance.headerTitleColor = Color.shared.black
         calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 18, weight: .bold)
         calendar.appearance.weekdayTextColor = Color.shared.darkGray
         calendar.locale = Locale(identifier: "en_EN")

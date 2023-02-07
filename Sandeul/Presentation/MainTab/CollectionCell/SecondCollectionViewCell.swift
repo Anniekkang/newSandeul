@@ -41,7 +41,7 @@ class SecondCollectionViewCell: BaseCollectionViewCell {
     let titleLabel : UILabel = {
        let label = UILabel()
         label.text = "mountains"
-        label.textColor = .black
+        label.textColor = Color.shared.black
         label.textAlignment = .left
         label.font = variousFont.largebold
         return label

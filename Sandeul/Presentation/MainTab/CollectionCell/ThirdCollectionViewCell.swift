@@ -24,15 +24,16 @@ class ThirdCollectionViewCell: BaseCollectionViewCell {
         view.layer.cornerRadius = 16
         view.layer.borderColor = Color.shared.Gray.cgColor
         view.layer.borderWidth = 1
+        view.clipsToBounds = true
         return view
     }()
     
     let titleLabel : UILabel = {
         let label = UILabel()
-        label.text = "mountain"
+        label.text = "기본산"
         label.font = variousFont.largebold
-        label.textColor = .black
-        label.textAlignment = .center
+        label.textColor = Color.shared.Gray
+        label.textAlignment = .left
         return label
     }()
     
@@ -71,8 +72,8 @@ class ThirdCollectionViewCell: BaseCollectionViewCell {
         [mountainView, stackView, arrowView].forEach {
             frameView.addSubview($0)
         }
-        mountainView.addSubview(titleLabel)
-        [heightLabel, locationLabel].forEach {
+        
+        [titleLabel, heightLabel, locationLabel].forEach {
             stackView.addSubview($0)
         }
         
@@ -87,23 +88,23 @@ class ThirdCollectionViewCell: BaseCollectionViewCell {
             make.width.equalToSuperview().multipliedBy(0.35)
         }
         
-        titleLabel.snp.makeConstraints { make in
-        
-            make.centerY.equalToSuperview().multipliedBy(1.6)
-            make.width.equalToSuperview()
-            make.height.equalTo(20)
-        }
-        
+       
         stackView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(10)
             make.leading.equalTo(mountainView.snp.trailing).offset(30)
             make.width.equalToSuperview().multipliedBy(0.3)
         }
         
+        titleLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(50)
+            make.centerY.equalToSuperview().multipliedBy(0.6)
+        }
+        
         heightLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(50)
-            make.centerY.equalToSuperview().multipliedBy(0.9)
+            make.centerY.equalToSuperview().multipliedBy(1.0)
         }
         
         locationLabel.snp.makeConstraints { make in

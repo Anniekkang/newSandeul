@@ -13,7 +13,6 @@ class FirstCollectionViewCell: BaseCollectionViewCell {
     let imageView : UIImageView = {
         let view = UIImageView()
         view.clipsToBounds = true
-        view.backgroundColor = .white
         view.image = UIImage(named: "logo")
         view.layer.cornerRadius = 16
         view.layer.borderColor = Color.shared.Gray.cgColor
@@ -33,7 +32,7 @@ class FirstCollectionViewCell: BaseCollectionViewCell {
     let titleLabel : UILabel = {
         let label = UILabel()
         label.text = "기본산"
-        label.textColor = .black
+        label.textColor = Color.shared.black
         label.textAlignment = .center
         label.font = variousFont.extraLargebold
         return label

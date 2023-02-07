@@ -57,6 +57,7 @@
 		9EC5C10E2990DEB500B93BCB /* nearDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C10D2990DEB500B93BCB /* nearDetailCollectionViewCell.swift */; };
 		9EC5C1102990DF5200B93BCB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C10F2990DF5200B93BCB /* Font.swift */; };
 		9EC5C1132990E51C00B93BCB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1122990E51C00B93BCB /* HeaderView.swift */; };
+		9EC5C1182991D6F600B93BCB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1172991D6F600B93BCB /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		9EC5C10D2990DEB500B93BCB /* nearDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EC5C10F2990DF5200B93BCB /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		9EC5C1122990E51C00B93BCB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		9EC5C1172991D6F600B93BCB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				9EB5CEA1298D3CBB005B4A7C /* Color.swift */,
 				9EB5CF57298FEDD2005B4A7C /* SetUserdefaults.swift */,
 				9EC5C10F2990DF5200B93BCB /* Font.swift */,
+				9EC5C1172991D6F600B93BCB /* Constant.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				9EB5CF55298FEC12005B4A7C /* Mountain.swift in Sources */,
 				9EB5CF23298E4CE6005B4A7C /* APIKey.swift in Sources */,
 				9EB5CF2D298E6D54005B4A7C /* LaunchViewController.swift in Sources */,
+				9EC5C1182991D6F600B93BCB /* Constant.swift in Sources */,
 				9EC5C1102990DF5200B93BCB /* Font.swift in Sources */,
 				9EB5CF34298E6F7E005B4A7C /* MountainModel.swift in Sources */,
 				9EB5CE9C298D37A2005B4A7C /* MainViewController.swift in Sources */,
