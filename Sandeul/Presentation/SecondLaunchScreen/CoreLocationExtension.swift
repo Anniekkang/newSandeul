@@ -7,8 +7,9 @@
 
 import UIKit
 import CoreLocation
+import CoreLocation
 
-extension MainViewController : CLLocationManagerDelegate {
+extension SecondLaunchViewController : CLLocationManagerDelegate {
     
     //called when location is updated - get currentLocation & currentRegion
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -21,9 +22,6 @@ extension MainViewController : CLLocationManagerDelegate {
         let geoCoder: CLGeocoder = CLGeocoder()
         let local: Locale = Locale(identifier: "Ko-kr") // Korea
         geoCoder.reverseGeocodeLocation(findLocation, preferredLocale: local) { [self]  (place, error) in
-            if let address: [CLPlacemark] = place {
-               
-            }
             
            if place?.last?.administrativeArea == nil {
                currentLocation = "경기도"
@@ -87,6 +85,14 @@ extension MainViewController : CLLocationManagerDelegate {
         present(requestAlert, animated: true)
         
         
+    }
+    
+    func locationSetup() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization() //권한 요청
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
     }
     
     

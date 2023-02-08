@@ -60,6 +60,9 @@
 		9EC5C1182991D6F600B93BCB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1172991D6F600B93BCB /* Constant.swift */; };
 		9EC5C11A2991ED1800B93BCB /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1192991ED1800B93BCB /* DetailTableViewCell.swift */; };
 		9EC5C11F29921E9500B93BCB /* CoreLocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */; };
+		9EC5C12429922D9F00B93BCB /* MountainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12329922D9F00B93BCB /* MountainRepository.swift */; };
+		9EC5C1272993901800B93BCB /* SecondLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1262993901800B93BCB /* SecondLaunchViewController.swift */; };
+		9EC5C1292993902600B93BCB /* SecondLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1282993902500B93BCB /* SecondLaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +144,9 @@
 		9EC5C1172991D6F600B93BCB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9EC5C1192991ED1800B93BCB /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationExtension.swift; sourceTree = "<group>"; };
+		9EC5C12329922D9F00B93BCB /* MountainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainRepository.swift; sourceTree = "<group>"; };
+		9EC5C1262993901800B93BCB /* SecondLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLaunchViewController.swift; sourceTree = "<group>"; };
+		9EC5C1282993902500B93BCB /* SecondLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLaunchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				9EB5CE98298D1D9E005B4A7C /* App */,
-				9EB5CEB5298D4116005B4A7C /* DB */,
+				9EB5CEB5298D4116005B4A7C /* Realm */,
 				9EB5CEB3298D4101005B4A7C /* Network */,
 				9E03DD08298D1D00006381E5 /* Global */,
 				9E03DD06298D1CF4006381E5 /* Presentation */,
@@ -205,7 +211,8 @@
 				9EB5CF0B298E1F83005B4A7C /* SearchDetail */,
 				9EB5CEA8298D3E22005B4A7C /* SearchTab */,
 				9EB5CEA7298D3E16005B4A7C /* MainTab */,
-				9EB5CF2B298E6D1B005B4A7C /* LaunchScreen */,
+				9EC5C12529938FFD00B93BCB /* SecondLaunchScreen */,
+				9EB5CF2B298E6D1B005B4A7C /* FirstLaunchScreen */,
 				9EB5CEA6298D3E0E005B4A7C /* Onboard */,
 				9EB5CEA5298D3E07005B4A7C /* Tabbar */,
 			);
@@ -292,7 +299,7 @@
 				9EC5C1112990E50500B93BCB /* HeaderView */,
 				9EC5C1082990DE5F00B93BCB /* nearbyDetailView */,
 				9EC5C1072990DE5000B93BCB /* MainView */,
-				9EB5CF6029907A62005B4A7C /* CollectionCell */,
+				9EB5CF6029907A62005B4A7C /* MainCollectionCell */,
 			);
 			path = MainTab;
 			sourceTree = "<group>";
@@ -332,12 +339,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		9EB5CEB5298D4116005B4A7C /* DB */ = {
+		9EB5CEB5298D4116005B4A7C /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				9EC5C12229922D3400B93BCB /* Repository */,
 				9EB5CF56298FECFF005B4A7C /* Model */,
 			);
-			path = DB;
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		9EB5CEFD298D4460005B4A7C /* Frameworks */ = {
@@ -393,13 +401,13 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		9EB5CF2B298E6D1B005B4A7C /* LaunchScreen */ = {
+		9EB5CF2B298E6D1B005B4A7C /* FirstLaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
 				9EB5CF2C298E6D54005B4A7C /* LaunchViewController.swift */,
 				9EB5CF2E298E6D63005B4A7C /* LaunchView.swift */,
 			);
-			path = LaunchScreen;
+			path = FirstLaunchScreen;
 			sourceTree = "<group>";
 		};
 		9EB5CF30298E6E8A005B4A7C /* Extension */ = {
@@ -418,21 +426,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9EB5CF6029907A62005B4A7C /* CollectionCell */ = {
+		9EB5CF6029907A62005B4A7C /* MainCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
 				9EB5CF6129907A75005B4A7C /* FirstCollectionViewCell.swift */,
 				9EB5CF6329907A7E005B4A7C /* SecondCollectionViewCell.swift */,
 				9EB5CF6529907A8E005B4A7C /* ThirdCollectionViewCell.swift */,
-				9EC5C10D2990DEB500B93BCB /* nearDetailCollectionViewCell.swift */,
 			);
-			path = CollectionCell;
+			path = MainCollectionCell;
 			sourceTree = "<group>";
 		};
 		9EC5C1072990DE5000B93BCB /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */,
 				9EB5CE9B298D37A2005B4A7C /* MainViewController.swift */,
 				9EB5CEAB298D3E50005B4A7C /* MainView.swift */,
 			);
@@ -444,6 +450,7 @@
 			children = (
 				9EC5C1092990DE8600B93BCB /* nearbyDetailViewController.swift */,
 				9EC5C10B2990DE9600B93BCB /* nearbyDetailView.swift */,
+				9EC5C10D2990DEB500B93BCB /* nearDetailCollectionViewCell.swift */,
 			);
 			path = nearbyDetailView;
 			sourceTree = "<group>";
@@ -462,6 +469,24 @@
 				9EB5CF5E2990726D005B4A7C /* HomeSection.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		9EC5C12229922D3400B93BCB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				9EC5C12329922D9F00B93BCB /* MountainRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		9EC5C12529938FFD00B93BCB /* SecondLaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9EC5C1262993901800B93BCB /* SecondLaunchViewController.swift */,
+				9EC5C1282993902500B93BCB /* SecondLaunchView.swift */,
+				9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */,
+			);
+			path = SecondLaunchScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -578,10 +603,12 @@
 			files = (
 				9EB5CF3A298F98B5005B4A7C /* OnboardViewController.swift in Sources */,
 				9EC5C10E2990DEB500B93BCB /* nearDetailCollectionViewCell.swift in Sources */,
+				9EC5C1272993901800B93BCB /* SecondLaunchViewController.swift in Sources */,
 				9EB5CF0F298E1FAE005B4A7C /* DetailViewController.swift in Sources */,
 				9EB5CF2F298E6D63005B4A7C /* LaunchView.swift in Sources */,
 				9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */,
 				9EC5C10A2990DE8600B93BCB /* nearbyDetailViewController.swift in Sources */,
+				9EC5C1292993902600B93BCB /* SecondLaunchView.swift in Sources */,
 				9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */,
 				9EB5CF6429907A7E005B4A7C /* SecondCollectionViewCell.swift in Sources */,
 				9EC5C10C2990DE9600B93BCB /* nearbyDetailView.swift in Sources */,
@@ -596,6 +623,7 @@
 				9EC5C11F29921E9500B93BCB /* CoreLocationExtension.swift in Sources */,
 				9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */,
 				9EB5CF43298FC352005B4A7C /* UIViewController+Extension.swift in Sources */,
+				9EC5C12429922D9F00B93BCB /* MountainRepository.swift in Sources */,
 				9E66B33429909D7C00D22126 /* reuseIdentifier.swift in Sources */,
 				9EB5CF6229907A75005B4A7C /* FirstCollectionViewCell.swift in Sources */,
 				9EB5CF15298E30D2005B4A7C /* DiaryEditViewController.swift in Sources */,

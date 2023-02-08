@@ -10,9 +10,12 @@ import BaseFrame
 import NVActivityIndicatorView
 import RealmSwift
 
+
+//RealmSave VC
 class LaunchViewController: BaseViewController {
     
     let realm = try! Realm()
+
     
     //data를 담을 data
     var mountainData : Results<Mountain>! {
@@ -36,7 +39,6 @@ class LaunchViewController: BaseViewController {
         self.view.addSubview(indicator)
         indicator.startAnimating()
         
-        
         DispatchQueue.global().async {
             guard let url = URL(string: Endpoint.mountainURL) else { return }
             
@@ -52,15 +54,14 @@ class LaunchViewController: BaseViewController {
                 UserDefaults.standard.set("Yes", forKey: "isFirstTime")
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                sceneDelegate?.window?.rootViewController = TabbarController()
+                sceneDelegate?.window?.rootViewController = SecondLaunchViewController()
             }
         }
         
         
     }
     
-    
-    
+   
     func realmSave() {
             do {
                 try self.realm.write {
@@ -73,8 +74,9 @@ class LaunchViewController: BaseViewController {
                         
                         let mountainData = Mountain(title: title, altitude: altitude, location: location, course: course)
                         
-                        //realm에 result<Mountain> 저장
+                        //realm에 Mountain들 저장
                         self.realm.add(mountainData)
+                        print(mountainData)
                     }
                 }
             } catch let error as NSError {
@@ -82,18 +84,11 @@ class LaunchViewController: BaseViewController {
                 // ... Handle error ...
             }
             
-            
-        
-        
-        
     }
     
-    //
     func fetchRealm(){
         mountainData = realm.objects(Mountain.self).sorted(byKeyPath: "title", ascending: true)
         print("==Realm is located at:", realm.configuration.fileURL!)
-        
-        
     }
     
     

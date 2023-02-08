@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if SetUserdefaults.isFirstTime() {
             window?.rootViewController = nav //true
         } else {
-            window?.rootViewController = TabbarController() //false
+            window?.rootViewController = SecondLaunchViewController() //false
         }
 
         window?.makeKeyAndVisible()

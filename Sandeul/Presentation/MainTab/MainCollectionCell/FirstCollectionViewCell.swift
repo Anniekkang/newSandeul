@@ -1,5 +1,5 @@
 //
-//  nearDetailCollectionViewCell.swift
+//  FirstCollectionViewCell.swift
 //  Sandeul
 //
 //  Created by 나리강 on 2023/02/06.
@@ -8,27 +8,31 @@
 import UIKit
 import BaseFrame
 
-class nearDetailCollectionViewCell: BaseCollectionViewCell {
+class FirstCollectionViewCell: BaseCollectionViewCell {
     
     let imageView : UIImageView = {
-       let view = UIImageView()
-        view.image = UIImage(named: "logo")
+        let view = UIImageView()
         view.clipsToBounds = true
+        view.image = UIImage(named: "logo")
         view.layer.cornerRadius = 16
-        view.layer.borderWidth = 1
         view.layer.borderColor = Color.shared.Gray.cgColor
+        view.layer.borderWidth = 1
+        
+        
         return view
     }()
     
     let backGroundView : UIView = {
         let view = UIView()
         view.layer.backgroundColor = (UIColor.white.cgColor).copy(alpha: 0.5)
+       
         return view
     }()
     
     let titleLabel : UILabel = {
         let label = UILabel()
         label.text = "기본산"
+        label.numberOfLines = 0
         label.textColor = Color.shared.black
         label.textAlignment = .center
         label.font = variousFont.extraLargebold
@@ -40,7 +44,7 @@ class nearDetailCollectionViewCell: BaseCollectionViewCell {
         label.text = "height"
         label.textColor = Color.shared.Gray
         label.textAlignment = .center
-        label.font = variousFont.smallbold
+        label.font = variousFont.largebold
 
         
         return label
@@ -51,7 +55,7 @@ class nearDetailCollectionViewCell: BaseCollectionViewCell {
         label.textColor = Color.shared.Green
         label.textAlignment = .center
         label.text = "위치"
-        label.font = variousFont.smallbold
+        label.font = variousFont.mediumbold
         return label
     }()
     
@@ -62,6 +66,8 @@ class nearDetailCollectionViewCell: BaseCollectionViewCell {
         view.distribution = .fillEqually
         return view
     }()
+    
+ 
     
     override func configure() {
         self.addSubview(imageView)
@@ -94,7 +100,7 @@ class nearDetailCollectionViewCell: BaseCollectionViewCell {
         }
         
         heightLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(stackView.spacing)
+            make.top.equalTo(titleLabel.snp.bottom)
             make.width.equalToSuperview()
             make.leading.trailing.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.1)
@@ -103,11 +109,15 @@ class nearDetailCollectionViewCell: BaseCollectionViewCell {
         }
         
         regionLabel.snp.makeConstraints { make in
+            make.top.equalTo(heightLabel.snp.bottom)
             make.leading.trailing.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.1)
-            make.top.equalTo(heightLabel.snp.bottom).offset(5)
+            
         }
+        
+       
+    
     }
     
     

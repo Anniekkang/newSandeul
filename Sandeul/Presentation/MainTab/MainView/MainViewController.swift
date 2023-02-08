@@ -8,17 +8,16 @@
 import UIKit
 import BaseFrame
 import SnapKit
+import RealmSwift
 import CoreLocation
 
 class MainViewController: BaseViewController {
     
     
-    var currentLongtitude : CLLocationDegrees?
-    var currentLatitude : CLLocationDegrees?
-    var currentLocation : String = "서울특별시"
-    var locationManager : CLLocationManager!
+    let realm = try! Realm()
     
     var array = globalConstant.shared.mountainImages.shuffled()
+    
     
     let mainView = MainView()
     override func loadView() {
@@ -29,37 +28,28 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
         
         navDesign()
-        locationSetup()
-        
-        
         
     }
     
-    func locationSetup() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization() //권한 요청
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-    }
-    
+   
     
     func navDesign() {
         self.navigationItem.title = "Sandeul"
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    //Not use
     func navLogo() {
         let imageView = UIImageView(image: UIImage(named: "logo"))
         imageView.contentMode = .scaleAspectFit
         self.navigationController?.navigationBar.addSubview(imageView)
-    
+        
         imageView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview().offset(150)
             make.height.equalToSuperview().multipliedBy(0.6)
         }
-       
+        
     }
     
     override func configure() {
@@ -69,21 +59,26 @@ class MainViewController: BaseViewController {
         mainView.collectionView.register(SecondCollectionViewCell.self, forCellWithReuseIdentifier: SecondCollectionViewCell.reuseIdentifier)
         mainView.collectionView.register(ThirdCollectionViewCell.self, forCellWithReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier)
         mainView.collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-
+        
     }
-
+    
+    
 }
-
-
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource {
    
    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return 5
+            if MountainRepository.shared.filteredData.count < 5 {
+                return MountainRepository.shared.filteredData.count
+            } else {
+                return 5
+            }
+            
         } else {
             return 1
         }
@@ -97,6 +92,9 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             
             cell.imageView.image = UIImage(named: array[indexPath.item])
+            cell.titleLabel.text = MountainRepository.shared.filteredData[indexPath.item].title
+            cell.heightLabel.text = "\(MountainRepository.shared.filteredData[indexPath.item].altitude) m"
+            cell.regionLabel.text = SecondLaunchViewController.shared.currentLocation
             
             return cell
         case 1 :
@@ -105,12 +103,12 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
         case 2 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
             
-            cell.mountainView.image = UIImage(named: array.randomElement() ?? "산1")
+            cell.mountainView.image = UIImage(named: array[4])
             return cell
         case 3 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
             
-            cell.mountainView.image = UIImage(named: array.randomElement() ?? "산2")
+            cell.mountainView.image = UIImage(named: array[5])
             return cell
         default :
             return UICollectionViewCell()
