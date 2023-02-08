@@ -7,6 +7,7 @@
 
 import UIKit
 import BaseFrame
+import SnapKit
 
 class DetailTableViewCell: BaseTableViewCell {
 
@@ -17,4 +18,13 @@ class DetailTableViewCell: BaseTableViewCell {
         return label
     }()
 
+    override func configure() {
+        self.addSubview(label)
+    }
+    
+    override func constraints() {
+        label.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(10)
+        }
+    }
 }

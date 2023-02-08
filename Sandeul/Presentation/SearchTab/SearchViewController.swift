@@ -10,16 +10,15 @@ import BaseFrame
 import RealmSwift
 
 
-
+enum Data {
+    static let regionArray = ["All","강원도", "경기도", "서울특별시", "경상남도", "경상북도", "대구광역시", "부산광역시", "울산광역시", "인천광역시", "전라남도", "전라북도", "제주도", "충청남도", "충청북도"]
+    static let filterArray = ["가나다 순", "고도 순"]
+}
 
 class SearchViewController: BaseViewController, UISearchResultsUpdating {
 
     let realm = try! Realm()
     
-    enum Data {
-        static let regionArray = ["All","강원도", "경기도", "서울특별시", "경상남도", "경상북도", "대구광역시", "부산광역시", "울산광역시", "인천광역시", "전라남도", "전라북도", "제주도", "충청남도", "충청북도"]
-        static let filterArray = ["가나다 순", "고도 순"]
-    }
     
     let mainView = SearchView()
     override func loadView() {
@@ -91,6 +90,11 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             return cell
         case 2 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableCollectionViewCell.reuseIdentifier, for: indexPath) as? TableCollectionViewCell else { return TableCollectionViewCell() }
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(detailMountainsAction))
+            cell.arrow.addGestureRecognizer(tapGesture)
+            cell.arrow.isUserInteractionEnabled = true
+            
             cell.Image.image = UIImage(named: "logo2")
             cell.titleLabel.text = realm.objects(Mountain.self)[indexPath.item].title
             cell.altitudeLabel.text = "\(realm.objects(Mountain.self)[indexPath.item].altitude) m"
@@ -101,8 +105,10 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         }
     }
     
+    @objc func detailMountainsAction() {
         
-    
+        self.navigationController?.pushViewController(DetailViewController(), animated: true)
+    }
     
     
 }

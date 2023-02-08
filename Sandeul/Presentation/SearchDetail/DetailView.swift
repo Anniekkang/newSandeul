@@ -10,17 +10,18 @@ import BaseFrame
 
 class DetailView: BaseView {
     
+    
     let background : UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "logo")
+        view.image = UIImage(named: globalConstant.shared.imageName)
         return view
     }()
     
     let titleLabel : UILabel = {
         let label = UILabel()
         label.text = "기본산"
-        label.textColor = Color.shared.black
-        label.font = variousFont.largebold
+        label.textColor = Color.shared.white
+        label.font = variousFont.extraLargebold
         return label
     }()
     
@@ -32,6 +33,7 @@ class DetailView: BaseView {
     
     let tableView : UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -47,14 +49,22 @@ class DetailView: BaseView {
             make.leading.top.trailing.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.3)
         }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(30)
+            make.centerY.equalToSuperview().multipliedBy(1.6)
+            make.width.equalToSuperview().multipliedBy(0.6)
+            make.height.equalTo(50)
+        }
         lineView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(background.snp.bottom)
-            make.height.equalTo(1)
+            make.height.equalTo(2)
         }
         tableView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(lineView.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview().inset(20)
+            make.top.equalTo(lineView.snp.bottom).offset(20)
+           
         }
     }
     

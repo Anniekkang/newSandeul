@@ -17,6 +17,7 @@ struct Color {
     let backgroundGray = UIColor(red: 232/255, green: 225/255, blue: 217/255, alpha: 0.3)
     let lineGray = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1)
     let black = UIColor.black
+    let white = UIColor.white
     
     
 }

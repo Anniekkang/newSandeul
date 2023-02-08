@@ -230,6 +230,7 @@
 				9EB5CF57298FEDD2005B4A7C /* SetUserdefaults.swift */,
 				9EC5C10F2990DF5200B93BCB /* Font.swift */,
 				9EC5C1172991D6F600B93BCB /* Constant.swift */,
+				9EC5C1122990E51C00B93BCB /* HeaderView.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -300,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				9EC5C1142991D0E600B93BCB /* Data */,
-				9EC5C1112990E50500B93BCB /* HeaderView */,
 				9EC5C1082990DE5F00B93BCB /* nearbyDetailView */,
 				9EC5C1072990DE5000B93BCB /* MainView */,
 			);
@@ -459,14 +459,6 @@
 				9EC5C10D2990DEB500B93BCB /* nearDetailCollectionViewCell.swift */,
 			);
 			path = nearbyDetailView;
-			sourceTree = "<group>";
-		};
-		9EC5C1112990E50500B93BCB /* HeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				9EC5C1122990E51C00B93BCB /* HeaderView.swift */,
-			);
-			path = HeaderView;
 			sourceTree = "<group>";
 		};
 		9EC5C1142991D0E600B93BCB /* Data */ = {
