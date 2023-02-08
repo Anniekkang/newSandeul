@@ -63,6 +63,8 @@
 		9EC5C12429922D9F00B93BCB /* MountainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12329922D9F00B93BCB /* MountainRepository.swift */; };
 		9EC5C1272993901800B93BCB /* SecondLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1262993901800B93BCB /* SecondLaunchViewController.swift */; };
 		9EC5C1292993902600B93BCB /* SecondLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1282993902500B93BCB /* SecondLaunchView.swift */; };
+		9EC5C12B29939D3200B93BCB /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */; };
+		9EC5C12D2993A25A00B93BCB /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		9EC5C12329922D9F00B93BCB /* MountainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainRepository.swift; sourceTree = "<group>"; };
 		9EC5C1262993901800B93BCB /* SecondLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLaunchViewController.swift; sourceTree = "<group>"; };
 		9EC5C1282993902500B93BCB /* SecondLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLaunchView.swift; sourceTree = "<group>"; };
+		9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,7 +216,7 @@
 				9EB5CEA8298D3E22005B4A7C /* SearchTab */,
 				9EB5CEA7298D3E16005B4A7C /* MainTab */,
 				9EC5C12529938FFD00B93BCB /* SecondLaunchScreen */,
-				9EB5CF2B298E6D1B005B4A7C /* FirstLaunchScreen */,
+				9EB5CF2B298E6D1B005B4A7C /* LaunchScreen */,
 				9EB5CEA6298D3E0E005B4A7C /* Onboard */,
 				9EB5CEA5298D3E07005B4A7C /* Tabbar */,
 			);
@@ -308,6 +312,8 @@
 			children = (
 				9EB5CE9D298D37AF005B4A7C /* SearchViewController.swift */,
 				9EB5CF01298DEEE4005B4A7C /* SearchView.swift */,
+				9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */,
+				9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -400,13 +406,13 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		9EB5CF2B298E6D1B005B4A7C /* FirstLaunchScreen */ = {
+		9EB5CF2B298E6D1B005B4A7C /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
 				9EB5CF2C298E6D54005B4A7C /* LaunchViewController.swift */,
 				9EB5CF2E298E6D63005B4A7C /* LaunchView.swift */,
 			);
-			path = FirstLaunchScreen;
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		9EB5CF30298E6E8A005B4A7C /* Extension */ = {
@@ -644,7 +650,9 @@
 				9EC5C1182991D6F600B93BCB /* Constant.swift in Sources */,
 				9EC5C1102990DF5200B93BCB /* Font.swift in Sources */,
 				9EB5CF34298E6F7E005B4A7C /* MountainModel.swift in Sources */,
+				9EC5C12D2993A25A00B93BCB /* TableCollectionViewCell.swift in Sources */,
 				9EB5CE9C298D37A2005B4A7C /* MainViewController.swift in Sources */,
+				9EC5C12B29939D3200B93BCB /* SearchCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

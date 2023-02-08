@@ -15,15 +15,8 @@ import RealmSwift
 class LaunchViewController: BaseViewController {
     
     let realm = try! Realm()
-
     
-    //data를 담을 data
-    var mountainData : Results<Mountain>! {
-        didSet {
-            
-            
-        }
-    }
+    
     
     let indicator = NVActivityIndicatorView(frame: CGRect(x: UIScreen.main.bounds.size.width * 0.45,y:UIScreen.main.bounds.size.height * 0.8, width: 50, height: 50),type: .ballBeat,color: Color.shared.Green,padding: 0)
     
@@ -72,11 +65,11 @@ class LaunchViewController: BaseViewController {
                         let location = constant.models[i].location
                         let course = constant.models[i].course
                         
-                        let mountainData = Mountain(title: title, altitude: altitude, location: location, course: course)
+                        let data = Mountain(title: title, altitude: altitude, location: location, course: course)
                         
                         //realm에 Mountain들 저장
-                        self.realm.add(mountainData)
-                        print(mountainData)
+                        self.realm.add(data)
+                        print(data)
                     }
                 }
             } catch let error as NSError {
@@ -87,7 +80,7 @@ class LaunchViewController: BaseViewController {
     }
     
     func fetchRealm(){
-        mountainData = realm.objects(Mountain.self).sorted(byKeyPath: "title", ascending: true)
+        MountainRepository.shared.mountainData = realm.objects(Mountain.self).sorted(byKeyPath: "title", ascending: true)
         print("==Realm is located at:", realm.configuration.fileURL!)
     }
     

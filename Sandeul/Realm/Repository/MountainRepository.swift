@@ -21,6 +21,13 @@ class MountainRepository : RepositoryType {
     static let shared = MountainRepository()
     
     let realm = try! Realm()
+    var mountainData : Results<Mountain>! {
+        didSet {
+            
+            
+        }
+    }
+    
     var filteredData : Results<Mountain>!
     
     func filterRealm()  {
