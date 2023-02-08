@@ -299,7 +299,6 @@
 				9EC5C1112990E50500B93BCB /* HeaderView */,
 				9EC5C1082990DE5F00B93BCB /* nearbyDetailView */,
 				9EC5C1072990DE5000B93BCB /* MainView */,
-				9EB5CF6029907A62005B4A7C /* MainCollectionCell */,
 			);
 			path = MainTab;
 			sourceTree = "<group>";
@@ -439,6 +438,7 @@
 		9EC5C1072990DE5000B93BCB /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				9EB5CF6029907A62005B4A7C /* MainCollectionCell */,
 				9EB5CE9B298D37A2005B4A7C /* MainViewController.swift */,
 				9EB5CEAB298D3E50005B4A7C /* MainView.swift */,
 			);

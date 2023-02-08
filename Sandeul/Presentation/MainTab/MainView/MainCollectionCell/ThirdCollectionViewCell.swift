@@ -32,7 +32,7 @@ class ThirdCollectionViewCell: BaseCollectionViewCell {
         let label = UILabel()
         label.text = "기본산"
         label.font = variousFont.largebold
-        label.textColor = Color.shared.Gray
+        label.textColor = Color.shared.black
         label.textAlignment = .left
         return label
     }()
@@ -98,7 +98,7 @@ class ThirdCollectionViewCell: BaseCollectionViewCell {
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(50)
-            make.centerY.equalToSuperview().multipliedBy(0.6)
+            make.centerY.equalToSuperview().multipliedBy(0.7)
         }
         
         heightLabel.snp.makeConstraints { make in

@@ -31,7 +31,7 @@ class MainViewController: BaseViewController {
         
     }
     
-   
+    
     
     func navDesign() {
         self.navigationItem.title = "Sandeul"
@@ -63,10 +63,12 @@ class MainViewController: BaseViewController {
     }
     
     
+    
 }
+
 extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSource {
-   
-   
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4
     }
@@ -85,11 +87,14 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        MountainRepository.shared.filteredData.sorted(byKeyPath: "altitude", ascending: true)
+        
+        
         switch indexPath.section {
-            
+            //near Mountains
         case 0 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FirstCollectionViewCell.reuseIdentifier, for: indexPath) as! FirstCollectionViewCell
-            
             
             cell.imageView.image = UIImage(named: array[indexPath.item])
             cell.titleLabel.text = MountainRepository.shared.filteredData[indexPath.item].title
@@ -97,26 +102,41 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             cell.regionLabel.text = SecondLaunchViewController.shared.currentLocation
             
             return cell
+            
+            //D-Day
         case 1 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SecondCollectionViewCell.reuseIdentifier, for: indexPath) as! SecondCollectionViewCell
             return cell
+            
+            //Recommend a lower mountain nearby
         case 2 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
             
+            cell.titleLabel.text = MountainRepository.shared.filteredData.first?.title
+            cell.locationLabel.text = SecondLaunchViewController.shared.currentLocation
+            cell.heightLabel.text = "\(MountainRepository.shared.filteredData.first!.altitude) m"
             cell.mountainView.image = UIImage(named: array[4])
+            
             return cell
+            
+            //Recommend a highest mountain nearby
         case 3 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
             
+            cell.titleLabel.text = MountainRepository.shared.filteredData.last?.title
+            cell.locationLabel.text = SecondLaunchViewController.shared.currentLocation
+            cell.heightLabel.text = "\(MountainRepository.shared.filteredData.last!.altitude) m"
             cell.mountainView.image = UIImage(named: array[5])
+            
             return cell
+            
         default :
             return UICollectionViewCell()
             
         }
         
     }
-   
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
@@ -132,10 +152,10 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             header.label.text = "일정"
             header.arrow.isHidden = true
         } else if indexPath.section == 2{
-            header.label.text = "근처에 산책하기 좋은 산"
+            header.label.text = "근처에 가장 낮은 산"
             header.arrow.isHidden = true
         } else {
-            header.label.text = "근처에 도전하기 좋은 산"
+            header.label.text = "근처에 가장 높은 산"
             header.arrow.isHidden = true
         }
         
@@ -144,7 +164,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     
-   
+    
     @objc func detailMountainsAction() {
         
         self.navigationController?.pushViewController(nearbyDetailViewController(), animated: true)
