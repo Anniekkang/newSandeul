@@ -14,7 +14,7 @@ class DetailViewController: BaseViewController {
     let realm = try! Realm()
     
     let titleArray = ["위치", "고도", "난이도", "코스"]
-    var givenRealm : Results<Mountain>?
+    var givenRealm : Mountain!
     
     
     let mainView = DetailView()
@@ -23,7 +23,7 @@ class DetailViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("givenRealm=====\(givenRealm)")
         
     }
     
@@ -48,13 +48,13 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0 :
-            cell.label.text = MountainRepository.shared.selectedRealm[0].location
+            cell.label.text = givenRealm.location
         case 1 :
-            cell.label.text = "\(MountainRepository.shared.selectedRealm[0].altitude) m"
+            cell.label.text = "\(givenRealm.altitude) m"
         case 2 :
-            cell.label.text = checkDifficulty(altitude : MountainRepository.shared.selectedRealm[0].altitude) 
+            cell.label.text = checkDifficulty(altitude : givenRealm.altitude)
         case 3 :
-            cell.label.text = MountainRepository.shared.selectedRealm[0].course
+            cell.label.text = givenRealm.course
         default :
             cell.label.text = "Error"
             

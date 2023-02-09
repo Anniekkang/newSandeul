@@ -12,7 +12,7 @@ import RealmSwift
 
 enum Data {
     static let regionArray = ["All","강원도", "경기도", "서울특별시", "경상남도", "경상북도", "대구광역시", "부산광역시", "울산광역시", "인천광역시", "전라남도", "전라북도", "제주도", "충청남도", "충청북도"]
-    static let filterArray = ["가나다 순", "고도 순"]
+    static let filterArray = ["가나다 순", "고도 높은 순", "고도 낮은 순"]
 }
 
 
@@ -71,7 +71,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         case 0 :
             return Data.regionArray.count
         case 1 :
-            return 2
+            return 3
         case 2 :
             return isFiltering ? MountainRepository.shared.searchfilteredData.count : 100
         default :
@@ -86,12 +86,14 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
             cell.Label.text = Data.regionArray[indexPath.item]
+            
             return cell
             
             //two options filter
         case 1 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
             cell.Label.text = Data.filterArray[indexPath.item]
+            
             return cell
             
             //mountainList
@@ -119,20 +121,29 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
         
-        if isFiltering {
-            MountainRepository.shared.selectedprimaryKey = MountainRepository.shared.searchfilteredData[indexPath.item].objectId
+        if indexPath.section == 2 {
+            if isFiltering {
+                MountainRepository.shared.selectedprimaryKey = MountainRepository.shared.searchfilteredData[indexPath.item].objectId
+            } else {
+                MountainRepository.shared.selectedprimaryKey = realm.objects(Mountain.self)[indexPath.item].objectId
+            }
+            
+            MountainRepository.shared.selectedRealm = realm.objects(Mountain.self).where({
+                $0.objectId ==  MountainRepository.shared.selectedprimaryKey!
+            }).first
+            
+            print(MountainRepository.shared.selectedprimaryKey!)
+            let vc = DetailViewController()
+            vc.givenRealm = MountainRepository.shared.selectedRealm
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         } else {
-            MountainRepository.shared.selectedprimaryKey = realm.objects(Mountain.self)[indexPath.item].objectId
+            print("choose")
         }
         
-        MountainRepository.shared.selectedRealm = realm.objects(Mountain.self).where({
-            $0.objectId ==  MountainRepository.shared.selectedprimaryKey!
-        })
         
-        print(MountainRepository.shared.selectedprimaryKey!)
-        let vc = DetailViewController()
-        vc.givenRealm = MountainRepository.shared.selectedRealm
-        self.navigationController?.pushViewController(DetailViewController(), animated: true)
+        
     }
+    
     
 }

@@ -19,7 +19,7 @@ class DetailView: BaseView {
     
     let titleLabel : UILabel = {
         let label = UILabel()
-        label.text = MountainRepository.shared.selectedRealm[0].title
+        label.text = MountainRepository.shared.selectedRealm.title
         label.textColor = Color.shared.white
         label.font = variousFont.extraLargebold
         return label

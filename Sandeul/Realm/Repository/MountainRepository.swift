@@ -26,10 +26,10 @@ class MountainRepository : RepositoryType {
         }
     }
     
-    var selectedRealm : Results<Mountain>!
+    var selectedRealm : Mountain! //Search후 누른 realm
     var selectedprimaryKey : ObjectId!
-    var filteredData : Results<Mountain>!
-    var searchfilteredData : Results<Mountain>!
+    var filteredData : Results<Mountain>! //location으로 filter된 realm
+    var searchfilteredData : Results<Mountain>!//searchbar에 있는 단어로 filter된 realm
     
     func filterRealm()  {
         

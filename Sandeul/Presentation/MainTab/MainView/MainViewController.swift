@@ -171,6 +171,33 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            guard collectionView.cellForItem(at: indexPath) is FirstCollectionViewCell else { return }
+            MountainRepository.shared.selectedRealm = MountainRepository.shared.filteredData[indexPath.item]
+            let vc = DetailViewController()
+            vc.givenRealm = MountainRepository.shared.selectedRealm
+                print("givenRealm======\(vc.givenRealm)")
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        } else if indexPath.section == 1 {
+            
+            
+            
+        } else if indexPath.section == 2 {
+            MountainRepository.shared.selectedRealm = MountainRepository.shared.filteredData.first
+            let vc = DetailViewController()
+            vc.givenRealm = MountainRepository.shared.selectedRealm
+            self.navigationController?.pushViewController(DetailViewController(), animated: true)
+            
+        } else {
+            MountainRepository.shared.selectedRealm = MountainRepository.shared.filteredData.last
+            let vc = DetailViewController()
+            vc.givenRealm = MountainRepository.shared.selectedRealm
+            self.navigationController?.pushViewController(DetailViewController(), animated: true)
+        }
+    }
     
     
 }
