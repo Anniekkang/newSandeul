@@ -119,12 +119,17 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
         
-        MountainRepository.shared.selectedprimaryKey = realm.objects(Mountain.self)[indexPath.item].objectId
+        if isFiltering {
+            MountainRepository.shared.selectedprimaryKey = MountainRepository.shared.searchfilteredData[indexPath.item].objectId
+        } else {
+            MountainRepository.shared.selectedprimaryKey = realm.objects(Mountain.self)[indexPath.item].objectId
+        }
+        
         MountainRepository.shared.selectedRealm = realm.objects(Mountain.self).where({
             $0.objectId ==  MountainRepository.shared.selectedprimaryKey!
         })
-        print(MountainRepository.shared.selectedprimaryKey!)
         
+        print(MountainRepository.shared.selectedprimaryKey!)
         let vc = DetailViewController()
         vc.givenRealm = MountainRepository.shared.selectedRealm
         self.navigationController?.pushViewController(DetailViewController(), animated: true)
