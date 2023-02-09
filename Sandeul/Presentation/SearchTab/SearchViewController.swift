@@ -16,40 +16,39 @@ enum Data {
 }
 
 
-class SearchViewController: BaseViewController, UISearchResultsUpdating {
+class SearchViewController: BaseViewController {
+    
+    
     
     let realm = try! Realm()
-    
-    var selectedRealm : Results<Mountain>!
-    var selectedprimaryKey : ObjectId!
-    
     let mainView = SearchView()
     override func loadView() {
         self.view = mainView
+    }
+    
+    var isFiltering: Bool {
+        let searchController = self.navigationItem.searchController
+        let isActive = searchController?.isActive ?? false
+        let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+        
+        return isActive && isSearchBarHasText
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navDesign()
+        searchBarSetup()
     }
     
     
     func navDesign() {
         self.navigationItem.title = "Search"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let searchController = UISearchController(searchResultsController: nil)
-        self.navigationItem.searchController = searchController
-        searchController.searchBar.placeholder = "산 이름을 검색하시오"
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        print(text)
-    }
+    
     
     override func configure() {
         mainView.collectionView.delegate = self
@@ -74,7 +73,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         case 1 :
             return 2
         case 2 :
-            return 100
+            return isFiltering ? MountainRepository.shared.searchfilteredData.count : 100
         default :
             return 5
         }
@@ -83,26 +82,32 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch indexPath.section {
-        //region filter
+            //region filter
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
             cell.Label.text = Data.regionArray[indexPath.item]
             return cell
             
-        //two options filter
+            //two options filter
         case 1 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
             cell.Label.text = Data.filterArray[indexPath.item]
             return cell
             
-        //mountainList
+            //mountainList
         case 2 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableCollectionViewCell.reuseIdentifier, for: indexPath) as? TableCollectionViewCell else { return TableCollectionViewCell() }
             
             cell.Image.image = UIImage(named: "logo2")
-            cell.titleLabel.text = realm.objects(Mountain.self)[indexPath.item].title
-            cell.altitudeLabel.text = "\(realm.objects(Mountain.self)[indexPath.item].altitude) m"
             
+            if isFiltering {
+                cell.titleLabel.text = MountainRepository.shared.searchfilteredData[indexPath.item].title
+                cell.altitudeLabel.text = "\(MountainRepository.shared.searchfilteredData[indexPath.item].altitude) m"
+            } else {
+                cell.titleLabel.text = realm.objects(Mountain.self)[indexPath.item].title
+                cell.altitudeLabel.text = "\(realm.objects(Mountain.self)[indexPath.item].altitude) m"
+                
+            }
             
             return cell
             
@@ -114,19 +119,15 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
         
-        selectedprimaryKey = realm.objects(Mountain.self)[indexPath.item].objectId
-        selectedRealm = realm.objects(Mountain.self).where({
-            $0.objectId == selectedprimaryKey!
+        MountainRepository.shared.selectedprimaryKey = realm.objects(Mountain.self)[indexPath.item].objectId
+        MountainRepository.shared.selectedRealm = realm.objects(Mountain.self).where({
+            $0.objectId ==  MountainRepository.shared.selectedprimaryKey!
         })
-        print(selectedprimaryKey!)
+        print(MountainRepository.shared.selectedprimaryKey!)
         
         let vc = DetailViewController()
-        vc.givenRealm = selectedRealm
-        print("selectedRealm === \(selectedRealm)")
-        print("givenRealm === \(vc.givenRealm)")
+        vc.givenRealm = MountainRepository.shared.selectedRealm
         self.navigationController?.pushViewController(DetailViewController(), animated: true)
-   
-        
     }
-   
+    
 }

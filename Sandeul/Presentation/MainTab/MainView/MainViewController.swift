@@ -170,8 +170,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
         self.navigationController?.pushViewController(nearbyDetailViewController(), animated: true)
     }
     
-    
-    
+
     
     
 }

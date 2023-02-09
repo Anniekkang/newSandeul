@@ -65,6 +65,7 @@
 		9EC5C1292993902600B93BCB /* SecondLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C1282993902500B93BCB /* SecondLaunchView.swift */; };
 		9EC5C12B29939D3200B93BCB /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */; };
 		9EC5C12D2993A25A00B93BCB /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */; };
+		9EC5C12F29948C6200B93BCB /* Search + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12E29948C6200B93BCB /* Search + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		9EC5C1282993902500B93BCB /* SecondLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLaunchView.swift; sourceTree = "<group>"; };
 		9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
+		9EC5C12E29948C6200B93BCB /* Search + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,10 +312,10 @@
 		9EB5CEA8298D3E22005B4A7C /* SearchTab */ = {
 			isa = PBXGroup;
 			children = (
+				9EC5C1302994915B00B93BCB /* CollectionViewCell */,
 				9EB5CE9D298D37AF005B4A7C /* SearchViewController.swift */,
 				9EB5CF01298DEEE4005B4A7C /* SearchView.swift */,
-				9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */,
-				9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */,
+				9EC5C12E29948C6200B93BCB /* Search + Extension.swift */,
 			);
 			path = SearchTab;
 			sourceTree = "<group>";
@@ -487,6 +489,15 @@
 			path = SecondLaunchScreen;
 			sourceTree = "<group>";
 		};
+		9EC5C1302994915B00B93BCB /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */,
+				9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -607,6 +618,7 @@
 				9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */,
 				9EC5C10A2990DE8600B93BCB /* nearbyDetailViewController.swift in Sources */,
 				9EC5C1292993902600B93BCB /* SecondLaunchView.swift in Sources */,
+				9EC5C12F29948C6200B93BCB /* Search + Extension.swift in Sources */,
 				9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */,
 				9EB5CF6429907A7E005B4A7C /* SecondCollectionViewCell.swift in Sources */,
 				9EC5C10C2990DE9600B93BCB /* nearbyDetailView.swift in Sources */,

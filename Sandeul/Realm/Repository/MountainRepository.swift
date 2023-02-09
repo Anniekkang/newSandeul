@@ -16,8 +16,6 @@ fileprivate protocol RepositoryType : AnyObject {
 
 class MountainRepository : RepositoryType {
     
-   
-    
     static let shared = MountainRepository()
     
     let realm = try! Realm()
@@ -28,7 +26,10 @@ class MountainRepository : RepositoryType {
         }
     }
     
+    var selectedRealm : Results<Mountain>!
+    var selectedprimaryKey : ObjectId!
     var filteredData : Results<Mountain>!
+    var searchfilteredData : Results<Mountain>!
     
     func filterRealm()  {
         

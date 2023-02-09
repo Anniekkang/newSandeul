@@ -33,9 +33,6 @@ class DetailViewController: BaseViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.register(DetailTableViewCell.self, forCellReuseIdentifier: DetailTableViewCell.reuseIdentifier)
     }
-
-  
-
 }
 
 extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
@@ -49,6 +46,19 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.reuseIdentifier, for: indexPath) as? DetailTableViewCell else { return UITableViewCell() }
         
+        switch indexPath.section {
+        case 0 :
+            cell.label.text = MountainRepository.shared.selectedRealm[0].location
+        case 1 :
+            cell.label.text = "\(MountainRepository.shared.selectedRealm[0].altitude) m"
+        case 2 :
+            cell.label.text = checkDifficulty(altitude : MountainRepository.shared.selectedRealm[0].altitude) 
+        case 3 :
+            cell.label.text = MountainRepository.shared.selectedRealm[0].course
+        default :
+            cell.label.text = "Error"
+            
+        }
         
         return cell
     }
@@ -70,6 +80,18 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    
+    func checkDifficulty(altitude : String) -> String {
+        guard let intAltitude = Int(altitude) else { return "확인불가" }
+        var difficulty : String = "확인불가"
+        
+        if intAltitude >= 1000 {
+            difficulty = "상급"
+        } else if intAltitude >= 500 {
+            difficulty = "중급"
+        } else {
+            difficulty = "초급"
+        }
+        return difficulty
+    }
     
 }

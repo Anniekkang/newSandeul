@@ -15,6 +15,8 @@ class DetailTableViewCell: BaseTableViewCell {
         let label = UILabel()
         label.text = "blarblar"
         label.textColor = Color.shared.black
+        label.font = variousFont.mediumbold
+        label.numberOfLines = 0
         return label
     }()
 
