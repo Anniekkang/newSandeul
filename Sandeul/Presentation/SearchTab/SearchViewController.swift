@@ -15,23 +15,26 @@ enum Data {
     static let filterArray = ["가나다 순", "고도 순"]
 }
 
-class SearchViewController: BaseViewController, UISearchResultsUpdating {
 
+class SearchViewController: BaseViewController, UISearchResultsUpdating {
+    
     let realm = try! Realm()
     
+    var selectedRealm : Results<Mountain>!
+    var selectedprimaryKey : ObjectId!
     
     let mainView = SearchView()
     override func loadView() {
         self.view = mainView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navDesign()
     }
     
-
+    
     func navDesign() {
         self.navigationItem.title = "Search"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -54,8 +57,8 @@ class SearchViewController: BaseViewController, UISearchResultsUpdating {
         mainView.collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.reuseIdentifier)
         mainView.collectionView.register(TableCollectionViewCell.self, forCellWithReuseIdentifier: TableCollectionViewCell.reuseIdentifier)
     }
-   
-
+    
+    
 }
 
 extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -80,24 +83,27 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch indexPath.section {
+        //region filter
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
             cell.Label.text = Data.regionArray[indexPath.item]
             return cell
+            
+        //two options filter
         case 1 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
             cell.Label.text = Data.filterArray[indexPath.item]
             return cell
+            
+        //mountainList
         case 2 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableCollectionViewCell.reuseIdentifier, for: indexPath) as? TableCollectionViewCell else { return TableCollectionViewCell() }
-            
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(detailMountainsAction))
-            cell.arrow.addGestureRecognizer(tapGesture)
-            cell.arrow.isUserInteractionEnabled = true
             
             cell.Image.image = UIImage(named: "logo2")
             cell.titleLabel.text = realm.objects(Mountain.self)[indexPath.item].title
             cell.altitudeLabel.text = "\(realm.objects(Mountain.self)[indexPath.item].altitude) m"
+            
+            
             return cell
             
         default :
@@ -105,10 +111,22 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         }
     }
     
-    @objc func detailMountainsAction() {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(#function)
         
+        selectedprimaryKey = realm.objects(Mountain.self)[indexPath.item].objectId
+        selectedRealm = realm.objects(Mountain.self).where({
+            $0.objectId == selectedprimaryKey!
+        })
+        print(selectedprimaryKey!)
+        
+        let vc = DetailViewController()
+        vc.givenRealm = selectedRealm
+        print("selectedRealm === \(selectedRealm)")
+        print("givenRealm === \(vc.givenRealm)")
         self.navigationController?.pushViewController(DetailViewController(), animated: true)
+   
+        
     }
-    
-    
+   
 }

@@ -7,10 +7,15 @@
 
 import UIKit
 import BaseFrame
+import RealmSwift
 
 class DetailViewController: BaseViewController {
 
+    let realm = try! Realm()
+    
     let titleArray = ["위치", "고도", "난이도", "코스"]
+    var givenRealm : Results<Mountain>?
+    
     
     let mainView = DetailView()
     override func loadView() {

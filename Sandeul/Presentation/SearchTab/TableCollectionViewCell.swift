@@ -10,8 +10,7 @@ import BaseFrame
 import SnapKit
 
 class TableCollectionViewCell: BaseCollectionViewCell {
-    
-  
+   
     let Image : UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 16
@@ -50,6 +49,7 @@ class TableCollectionViewCell: BaseCollectionViewCell {
     let arrow : UIImageView = {
        let view = UIImageView()
         view.image = UIImage(named: "arrowright2")
+        
         return view
     }()
     
@@ -72,7 +72,7 @@ class TableCollectionViewCell: BaseCollectionViewCell {
         stackView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalTo(Image.snp.trailing).offset(10)
-            make.width.equalToSuperview().multipliedBy(0.7)
+            make.width.equalToSuperview().multipliedBy(0.6)
             make.centerY.equalToSuperview()
         }
         
