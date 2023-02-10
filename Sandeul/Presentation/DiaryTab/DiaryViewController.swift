@@ -11,7 +11,7 @@ import SnapKit
 
 
 class DiaryViewController: BaseViewController {
-
+    
     let mainView = DiaryView()
     lazy var calendar = mainView.calendar
     
@@ -21,7 +21,7 @@ class DiaryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navDesign()
         customButton()
         calendarDesign()
@@ -37,15 +37,23 @@ class DiaryViewController: BaseViewController {
         let plusButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         plusButton.image = UIImage(named: "addsquare")
         self.navigationController?.navigationBar.addSubview(plusButton)
-       
+        
         plusButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().inset(30)
         }
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(plusButtonTapped))
+        plusButton.addGestureRecognizer(tapGesture)
+        plusButton.isUserInteractionEnabled = true
+        
     }
     
-
+    @objc func plusButtonTapped() {
+        let nav = UINavigationController(rootViewController: DiaryDetailViewController())
+        self.navigationController?.present(nav, animated: true)
+    }
+    
     func calendarDesign() {
         calendar.appearance.selectionColor = Color.shared.Green.withAlphaComponent(0.5)
         calendar.appearance.todayColor = Color.shared.Green
@@ -61,8 +69,8 @@ class DiaryViewController: BaseViewController {
         calendar.appearance.eventDefaultColor = Color.shared.Green
         calendar.appearance.eventSelectionColor = Color.shared.Yellow
         calendar.scope = .month
- 
+        
     }
     
-
+    
 }

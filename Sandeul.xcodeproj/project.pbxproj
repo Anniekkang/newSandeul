@@ -11,6 +11,7 @@
 		9E03DCF5298D1C66006381E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03DCF4298D1C66006381E5 /* SceneDelegate.swift */; };
 		9E03DCFC298D1C69006381E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E03DCFB298D1C69006381E5 /* Assets.xcassets */; };
 		9E03DCFF298D1C69006381E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E03DCFD298D1C69006381E5 /* LaunchScreen.storyboard */; };
+		9E55BE79299590DA00E40754 /* DiaryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55BE78299590DA00E40754 /* DiaryDetailTableViewCell.swift */; };
 		9E66B33029909BB500D22126 /* BaseFrame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E66B32D29909B6100D22126 /* BaseFrame.framework */; };
 		9E66B33129909BB500D22126 /* BaseFrame.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E66B32D29909B6100D22126 /* BaseFrame.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E66B33429909D7C00D22126 /* reuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66B33329909D7C00D22126 /* reuseIdentifier.swift */; };
@@ -66,6 +67,8 @@
 		9EC5C12B29939D3200B93BCB /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */; };
 		9EC5C12D2993A25A00B93BCB /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */; };
 		9EC5C12F29948C6200B93BCB /* Search + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12E29948C6200B93BCB /* Search + Extension.swift */; };
+		9ED07F2529959B68002A1774 /* CameraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F2429959B68002A1774 /* CameraTableViewCell.swift */; };
+		9ED07F2829959C56002A1774 /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F2729959C56002A1774 /* MemoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,7 @@
 		9E03DCFB298D1C69006381E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E03DCFE298D1C69006381E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E03DD00298D1C69006381E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E55BE78299590DA00E40754 /* DiaryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9E66B32729909B6100D22126 /* BaseFrame.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BaseFrame.xcodeproj; path = BaseFrame/BaseFrame.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9E66B33329909D7C00D22126 /* reuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reuseIdentifier.swift; sourceTree = "<group>"; };
 		9EB5CE99298D375F005B4A7C /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 		9EC5C12A29939D3200B93BCB /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EC5C12C2993A25A00B93BCB /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EC5C12E29948C6200B93BCB /* Search + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search + Extension.swift"; sourceTree = "<group>"; };
+		9ED07F2429959B68002A1774 /* CameraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewCell.swift; sourceTree = "<group>"; };
+		9ED07F2729959C56002A1774 /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +381,7 @@
 		9EB5CF10298E309E005B4A7C /* DiaryDetail */ = {
 			isa = PBXGroup;
 			children = (
+				9ED07F2629959C3E002A1774 /* TableViewCell */,
 				9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */,
 				9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */,
 			);
@@ -498,6 +505,16 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		9ED07F2629959C3E002A1774 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9ED07F2729959C56002A1774 /* MemoTableViewCell.swift */,
+				9ED07F2429959B68002A1774 /* CameraTableViewCell.swift */,
+				9E55BE78299590DA00E40754 /* DiaryDetailTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -615,9 +632,11 @@
 				9EC5C1272993901800B93BCB /* SecondLaunchViewController.swift in Sources */,
 				9EB5CF0F298E1FAE005B4A7C /* DetailViewController.swift in Sources */,
 				9EB5CF2F298E6D63005B4A7C /* LaunchView.swift in Sources */,
+				9ED07F2829959C56002A1774 /* MemoTableViewCell.swift in Sources */,
 				9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */,
 				9EC5C10A2990DE8600B93BCB /* nearbyDetailViewController.swift in Sources */,
 				9EC5C1292993902600B93BCB /* SecondLaunchView.swift in Sources */,
+				9E55BE79299590DA00E40754 /* DiaryDetailTableViewCell.swift in Sources */,
 				9EC5C12F29948C6200B93BCB /* Search + Extension.swift in Sources */,
 				9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */,
 				9EB5CF6429907A7E005B4A7C /* SecondCollectionViewCell.swift in Sources */,
@@ -625,6 +644,7 @@
 				9EB5CE9E298D37AF005B4A7C /* SearchViewController.swift in Sources */,
 				9EB5CF2A298E6CFC005B4A7C /* XMLParsing.swift in Sources */,
 				9EB5CEAC298D3E50005B4A7C /* MainView.swift in Sources */,
+				9ED07F2529959B68002A1774 /* CameraTableViewCell.swift in Sources */,
 				9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */,
 				9EB5CF25298E50E5005B4A7C /* Endpoint.swift in Sources */,
 				9EB5CF41298FA348005B4A7C /* OnboardingHelper.swift in Sources */,
