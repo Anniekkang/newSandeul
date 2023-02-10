@@ -14,16 +14,16 @@ class DiaryDetailTableViewCell: BaseTableViewCell {
     let titleLabel : UILabel = {
         let label = UILabel()
         label.text = "title"
-        label.textColor = Color.shared.Gray
+        label.textColor = Color.shared.black
         label.font = variousFont.mediumMedium
         label.textAlignment = .left
         return label
     }()
     
-    let contentLabel : UILabel = {
-        let label = UILabel()
-        label.text = "contents"
-        label.textColor = Color.shared.Green
+    let contentLabel : UITextField = {
+        let label = UITextField()
+        label.placeholder = "contents"
+        label.textColor = Color.shared.Gray
         label.font = variousFont.smallMedium
         label.textAlignment = .right
         return label

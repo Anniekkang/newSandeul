@@ -9,6 +9,8 @@ import UIKit
 import BaseFrame
 
 enum titleArray {
+    static let firstTitle = ["지역","고도"]
+    static let secondTitle = ["","날짜","산행시간","거리"]
     
 }
 
@@ -91,9 +93,16 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
        
         switch indexPath.section {
         
-        case 0,1,2,3 :
+        case 0,1,2,3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryDetailTableViewCell.reuseIdentifier, for: indexPath) as? DiaryDetailTableViewCell else { return UITableViewCell() }
-            
+            if indexPath.section == 0 {
+                cell.titleLabel.text = titleArray.firstTitle[indexPath.item]
+                cell.contentLabel.placeholder = titleArray.firstTitle[indexPath.item]
+            } else {
+                cell.titleLabel.text = titleArray.secondTitle[indexPath.section]
+                cell.contentLabel.placeholder = titleArray.secondTitle[indexPath.section]
+            }
+           
             return cell
         case 4 :
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CameraTableViewCell.reuseIdentifier, for: indexPath) as? CameraTableViewCell else { return UITableViewCell() }
