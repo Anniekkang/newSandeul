@@ -50,8 +50,14 @@ class DiaryViewController: BaseViewController {
     }
     
     @objc func plusButtonTapped() {
-        let nav = UINavigationController(rootViewController: DiaryDetailViewController())
-        self.navigationController?.present(nav, animated: true)
+        let requestAlert = UIAlertController(title: "안내", message: "현재 서비스 준비 중 입니다", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "확인", style: .destructive)
+        requestAlert.addAction(okayButton)
+        present(requestAlert, animated: true)
+        
+        //디테일 뷰 구현 후 추후 구현
+//        let nav = UINavigationController(rootViewController: DiaryDetailViewController())
+//        self.navigationController?.present(nav, animated: true)
     }
     
     func calendarDesign() {

@@ -31,7 +31,7 @@ class SecondCollectionViewCell: BaseCollectionViewCell {
     
     let ddayLabel : UILabel = {
        let label = UILabel()
-        label.text = "D-Day"
+        label.text = "서비스 준비 중"
         label.textColor = Color.shared.Green
         label.font = variousFont.mediumbold
         label.textAlignment = .center
@@ -40,7 +40,7 @@ class SecondCollectionViewCell: BaseCollectionViewCell {
     
     let titleLabel : UILabel = {
        let label = UILabel()
-        label.text = "mountains"
+        label.text = "서비스 준비 중"
         label.textColor = Color.shared.black
         label.textAlignment = .left
         label.font = variousFont.largebold
@@ -49,7 +49,7 @@ class SecondCollectionViewCell: BaseCollectionViewCell {
     
     let dateLabel : UILabel = {
        let label = UILabel()
-        label.text = "2022.02.02"
+        label.text = "추후 업데이트 예정"
         label.textColor = Color.shared.Yellow
         label.textAlignment = .left
         label.font = variousFont.smallbold

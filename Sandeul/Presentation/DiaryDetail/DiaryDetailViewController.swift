@@ -56,8 +56,7 @@ class DiaryDetailViewController: BaseViewController {
         self.navigationItem.leftBarButtonItem = cancelItem
         self.navigationController?.navigationBar.backgroundColor = Color.shared.white
         self.navigationController?.navigationBar.barTintColor = .clear
-        
-        print(#function)
+    
     }
     
     @objc func cancelButtonTapped() {
@@ -125,7 +124,9 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
         return indexPath.section == 4 || indexPath.section == 5 ? UIScreen.main.bounds.size.width * 0.4 : 50    }
 
     
+    
 }
+
 
 extension DiaryDetailViewController : UISearchBarDelegate {
     
@@ -136,6 +137,8 @@ extension DiaryDetailViewController : UISearchBarDelegate {
 }
 
 extension DiaryDetailViewController : UITextViewDelegate {
+    
+    
     //textView - focus happening
     func textViewDidBeginEditing(_ textView: UITextView) {
        
@@ -145,8 +148,6 @@ extension DiaryDetailViewController : UITextViewDelegate {
         }
         
     }
-    
-    
     
     //textView - focus lost
     func textViewDidEndEditing(_ textView: UITextView) {

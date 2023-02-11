@@ -20,6 +20,7 @@ class MemoTableViewCell: BaseTableViewCell {
         view.text = textViewPlaceHolder
         view.textColor = Color.shared.Gray
         view.font = variousFont.smallMedium
+        view.isEditable = true
         return view
     }()
     
