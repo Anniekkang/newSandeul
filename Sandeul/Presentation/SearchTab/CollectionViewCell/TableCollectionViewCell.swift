@@ -78,15 +78,17 @@ class TableCollectionViewCell: BaseCollectionViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview().multipliedBy(0.5)
+            //make.top.equalToSuperview()
             make.leading.equalToSuperview().inset(20)
-            make.height.equalToSuperview().multipliedBy(0.5)
+            make.height.equalToSuperview().multipliedBy(0.4)
             make.width.equalToSuperview()
         }
         
         altitudeLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview().multipliedBy(1.5)
+            //make.bottom.equalToSuperview()
             make.leading.equalToSuperview().inset(20)
-            make.height.equalToSuperview().multipliedBy(0.5)
+            make.height.equalToSuperview().multipliedBy(0.4)
             make.width.equalToSuperview()
         }
         

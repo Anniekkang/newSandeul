@@ -51,7 +51,7 @@ class SearchView: BaseView {
         // group
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .estimated(110),
-            heightDimension: .fractionalHeight(0.06)
+            heightDimension: .fractionalHeight(0.08)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
@@ -77,7 +77,7 @@ class SearchView: BaseView {
         // group
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(10)
+            heightDimension: .fractionalHeight(15)
         )
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,

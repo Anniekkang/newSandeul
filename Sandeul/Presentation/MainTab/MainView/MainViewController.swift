@@ -114,7 +114,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             cell.titleLabel.text = MountainRepository.shared.filteredData.first?.title
             cell.locationLabel.text = SecondLaunchViewController.shared.currentLocation
-            cell.heightLabel.text = "\(MountainRepository.shared.filteredData.first!.altitude) m"
+            cell.heightLabel.text = "\(MountainRepository.shared.filteredData.first?.altitude ?? "확인불가능") m"
             cell.mountainView.image = UIImage(named: array[4])
             
             return cell
@@ -170,17 +170,14 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
         self.navigationController?.pushViewController(nearbyDetailViewController(), animated: true)
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            guard collectionView.cellForItem(at: indexPath) is FirstCollectionViewCell else { return }
             MountainRepository.shared.selectedRealm = MountainRepository.shared.filteredData[indexPath.item]
             let vc = DetailViewController()
             vc.givenRealm = MountainRepository.shared.selectedRealm
-                print("givenRealm======\(vc.givenRealm)")
-            
             self.navigationController?.pushViewController(vc, animated: true)
-
+            
         } else if indexPath.section == 1 {
             
             
@@ -189,13 +186,18 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             MountainRepository.shared.selectedRealm = MountainRepository.shared.filteredData.first
             let vc = DetailViewController()
             vc.givenRealm = MountainRepository.shared.selectedRealm
-            self.navigationController?.pushViewController(DetailViewController(), animated: true)
+            print("givenRealm======\(vc.givenRealm)")
+            self.navigationController?.pushViewController(vc, animated: true)
+            
             
         } else {
             MountainRepository.shared.selectedRealm = MountainRepository.shared.filteredData.last
             let vc = DetailViewController()
             vc.givenRealm = MountainRepository.shared.selectedRealm
-            self.navigationController?.pushViewController(DetailViewController(), animated: true)
+            print("givenRealm======\(vc.givenRealm)")
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
     

@@ -40,6 +40,7 @@ class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
         navDesign()
         searchBarSetup()
         mainView.collectionView.allowsMultipleSelection = true
@@ -170,4 +171,5 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         
     }
     
+
 }

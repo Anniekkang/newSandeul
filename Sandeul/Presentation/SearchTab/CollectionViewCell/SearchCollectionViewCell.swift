@@ -38,7 +38,7 @@ class SearchCollectionViewCell: BaseCollectionViewCell {
     
     let view : UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = 8
         view.layer.borderColor = Color.shared.Gray.cgColor
         view.layer.borderWidth = 1
         return view

@@ -31,7 +31,7 @@ class SecondCollectionViewCell: BaseCollectionViewCell {
     
     let ddayLabel : UILabel = {
        let label = UILabel()
-        label.text = "서비스 준비 중"
+        label.text = "준비 중"
         label.textColor = Color.shared.Green
         label.font = variousFont.mediumbold
         label.textAlignment = .center
