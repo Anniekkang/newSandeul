@@ -18,9 +18,11 @@ enum Data {
 
 class SearchViewController: BaseViewController {
     
-    
+    var previousSelectedIndexPath : IndexPath? = nil
+    var lastSelectedIndexPath : IndexPath? = nil
     
     let realm = try! Realm()
+    
     let mainView = SearchView()
     override func loadView() {
         self.view = mainView
@@ -40,6 +42,9 @@ class SearchViewController: BaseViewController {
         
         navDesign()
         searchBarSetup()
+        mainView.collectionView.allowsMultipleSelection = true
+//        mainView.collectionView.cellForItem(at: [0,0])?.isSelected = true
+//        mainView.collectionView.cellForItem(at: [1,0])?.isSelected = true
     }
     
     
@@ -80,16 +85,16 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
         
         switch indexPath.section {
             //region filter
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
             cell.Label.text = Data.regionArray[indexPath.item]
-            
             return cell
             
-            //two options filter
+            //three options filter
         case 1 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
             cell.Label.text = Data.filterArray[indexPath.item]
@@ -101,6 +106,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableCollectionViewCell.reuseIdentifier, for: indexPath) as? TableCollectionViewCell else { return TableCollectionViewCell() }
             
             cell.Image.image = UIImage(named: "logo2")
+            
             
             if isFiltering {
                 cell.titleLabel.text = MountainRepository.shared.searchfilteredData[indexPath.item].title
@@ -137,13 +143,31 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             vc.givenRealm = MountainRepository.shared.selectedRealm
             self.navigationController?.pushViewController(vc, animated: true)
             
+        } else if indexPath.section == 0 {
+            guard collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) is SearchCollectionViewCell else { return }
+            
+           // collectionView.deselectItem(at: [0,0], animated: true)
+            
+            if previousSelectedIndexPath != nil {
+                collectionView.deselectItem(at: previousSelectedIndexPath!, animated: true)
+            }
+            let selectedCell = collectionView.cellForItem(at: indexPath)!
+            selectedCell.isSelected = true
+            previousSelectedIndexPath = indexPath
+            
         } else {
-            print("choose")
+            guard collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) is SearchCollectionViewCell else { return }
+            
+          //  collectionView.deselectItem(at: [1,0], animated: true)
+            if lastSelectedIndexPath != nil {
+                collectionView.deselectItem(at: lastSelectedIndexPath!, animated: true)
+            }
+            let selectedCell = collectionView.cellForItem(at: indexPath)!
+            selectedCell.isSelected = true
+            lastSelectedIndexPath = indexPath
+            
         }
         
-        
-        
     }
-    
     
 }
