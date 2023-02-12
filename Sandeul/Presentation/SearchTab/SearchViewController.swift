@@ -115,10 +115,10 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
 //                cell.titleLabel.text = MountainRepository.shared.searchfilteredData[indexPath.item].title
 //                cell.altitudeLabel.text = "\(MountainRepository.shared.searchfilteredData[indexPath.item].altitude) m"
 //            } else {
-//                
-//                
+//
+//
 //            }
-//            
+//
             return cell
             
         default :
@@ -157,20 +157,17 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             
             
             if indexPath.item == 0 {
-                MountainRepository.shared.regionFilteredData = realm.objects(Mountain.self)
+                regionFiltered = realm.objects(Mountain.self)
             } else {
                 var selectRegion = Data.regionArray[indexPath.item]
                 regionFiltered = realm.objects(Mountain.self).where {
                     $0.location.contains(selectRegion)
                 }
                 print("regionFiltered=== \(String(describing: regionFiltered))")
-                collectionView.reloadSections(IndexSet(2...2))
             }
             
-            
-            
-            
-            
+            collectionView.reloadSections(IndexSet(2...2))
+      
             
         } else {
             guard collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) is SearchCollectionViewCell else { return }
