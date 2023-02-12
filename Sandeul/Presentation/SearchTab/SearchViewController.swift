@@ -139,7 +139,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             if isFiltering {
                 MountainRepository.shared.selectedprimaryKey = MountainRepository.shared.searchfilteredData[indexPath.item].objectId
             } else {
-                MountainRepository.shared.selectedprimaryKey = realm.objects(Mountain.self)[indexPath.item].objectId
+                MountainRepository.shared.selectedprimaryKey = regionFiltered[indexPath.item].objectId
             }
             
             MountainRepository.shared.selectedRealm = realm.objects(Mountain.self).where({
