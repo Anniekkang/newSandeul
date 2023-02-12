@@ -29,13 +29,6 @@ class SearchCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func selectedColorChange(cell : UICollectionViewCell,view : UIView, Label : UILabel)  {
-        if cell.isSelected == false {
-            view.layer.borderColor = Color.shared.Gray.cgColor
-            Label.textColor = Color.shared.Gray
-        }
-    }
-    
     let view : UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8

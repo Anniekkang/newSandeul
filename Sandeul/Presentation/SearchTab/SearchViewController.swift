@@ -20,6 +20,7 @@ class SearchViewController: BaseViewController {
     
     var previousSelectedIndexPath : IndexPath? = nil
     var lastSelectedIndexPath : IndexPath? = nil
+    var regionFiltered : Results<Mountain> = MountainRepository.shared.regionFilteredData
     
     let realm = try! Realm()
     
@@ -79,7 +80,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         case 1 :
             return 3
         case 2 :
-            return isFiltering ? MountainRepository.shared.searchfilteredData.count : 100
+            return isFiltering ? MountainRepository.shared.searchfilteredData.count : regionFiltered.count
         default :
             return 5
         }
@@ -107,17 +108,17 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableCollectionViewCell.reuseIdentifier, for: indexPath) as? TableCollectionViewCell else { return TableCollectionViewCell() }
             
             cell.Image.image = UIImage(named: "logo2")
+            cell.titleLabel.text = regionFiltered[indexPath.item].title
+            cell.altitudeLabel.text = "\(regionFiltered[indexPath.item].altitude) m"
             
-            
-            if isFiltering {
-                cell.titleLabel.text = MountainRepository.shared.searchfilteredData[indexPath.item].title
-                cell.altitudeLabel.text = "\(MountainRepository.shared.searchfilteredData[indexPath.item].altitude) m"
-            } else {
-                cell.titleLabel.text = realm.objects(Mountain.self)[indexPath.item].title
-                cell.altitudeLabel.text = "\(realm.objects(Mountain.self)[indexPath.item].altitude) m"
-                
-            }
-            
+//            if isFiltering {
+//                cell.titleLabel.text = MountainRepository.shared.searchfilteredData[indexPath.item].title
+//                cell.altitudeLabel.text = "\(MountainRepository.shared.searchfilteredData[indexPath.item].altitude) m"
+//            } else {
+//                
+//                
+//            }
+//            
             return cell
             
         default :
@@ -145,8 +146,6 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             self.navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 0 {
-            guard collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) is SearchCollectionViewCell else { return }
-            
            // collectionView.deselectItem(at: [0,0], animated: true)
             
             if previousSelectedIndexPath != nil {
@@ -155,6 +154,23 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             let selectedCell = collectionView.cellForItem(at: indexPath)!
             selectedCell.isSelected = true
             previousSelectedIndexPath = indexPath
+            
+            
+            if indexPath.item == 0 {
+                MountainRepository.shared.regionFilteredData = realm.objects(Mountain.self)
+            } else {
+                var selectRegion = Data.regionArray[indexPath.item]
+                regionFiltered = realm.objects(Mountain.self).where {
+                    $0.location.contains(selectRegion)
+                }
+                print("regionFiltered=== \(String(describing: regionFiltered))")
+                collectionView.reloadSections(IndexSet(2...2))
+            }
+            
+            
+            
+            
+            
             
         } else {
             guard collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.reuseIdentifier, for: indexPath) is SearchCollectionViewCell else { return }

@@ -30,6 +30,7 @@ class MountainRepository : RepositoryType {
     var selectedprimaryKey : ObjectId!
     var filteredData : Results<Mountain>! //location으로 filter된 realm
     var searchfilteredData : Results<Mountain>!//searchbar에 있는 단어로 filter된 realm
+    lazy var regionFilteredData : Results<Mountain> = realm.objects(Mountain.self)
     
     func filterRealm()  {
         
