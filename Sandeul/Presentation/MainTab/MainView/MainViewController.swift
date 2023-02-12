@@ -88,7 +88,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        MountainRepository.shared.filteredData.sorted(byKeyPath: "altitude", ascending: true)
+        MountainRepository.shared.filteredData = MountainRepository.shared.filteredData.sorted(byKeyPath: "altitude", ascending: true)
         
         
         switch indexPath.section {

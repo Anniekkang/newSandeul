@@ -32,7 +32,7 @@ class nearDetailCollectionViewCell: BaseCollectionViewCell {
         label.numberOfLines = 0
         label.textColor = Color.shared.black
         label.textAlignment = .center
-        label.font = variousFont.extraLargebold
+        label.font = variousFont.largebold
         return label
     }()
     
@@ -41,7 +41,7 @@ class nearDetailCollectionViewCell: BaseCollectionViewCell {
         label.text = "height"
         label.textColor = Color.shared.Green
         label.textAlignment = .center
-        label.font = variousFont.largebold
+        label.font = variousFont.mediumbold
 
         
         return label
@@ -52,7 +52,7 @@ class nearDetailCollectionViewCell: BaseCollectionViewCell {
         label.textColor = Color.shared.Gray
         label.textAlignment = .center
         label.text = "위치"
-        label.font = variousFont.mediumbold
+        label.font = variousFont.smallbold
         return label
     }()
     

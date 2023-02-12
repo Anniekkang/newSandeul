@@ -7,9 +7,12 @@
 
 import UIKit
 import BaseFrame
+import RealmSwift
 
 class nearbyDetailViewController: BaseViewController {
 
+    let realm = try! Realm()
+    
     var array = globalConstant.shared.mountainImages.shuffled()
     
     let mainView = nearbyDetailView()
@@ -56,7 +59,15 @@ extension nearbyDetailViewController : UICollectionViewDelegate, UICollectionVie
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        MountainRepository.shared.selectedRealm = MountainRepository.shared.filteredData[indexPath.item]
+        print("selectedRealm===\(MountainRepository.shared.selectedRealm)")
+        let vc = DetailViewController()
+        vc.givenRealm = MountainRepository.shared.selectedRealm
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     
