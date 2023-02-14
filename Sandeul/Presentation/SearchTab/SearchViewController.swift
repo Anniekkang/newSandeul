@@ -12,7 +12,7 @@ import RealmSwift
 
 enum Data {
     static let regionArray = ["All","강원도", "경기도", "서울특별시", "경상남도", "경상북도", "대구광역시", "부산광역시", "울산광역시", "인천광역시", "전라남도", "전라북도", "제주도", "충청남도", "충청북도"]
-    static let filterArray = ["가나다 순", "고도 1000m 미만", "고도 1000m 이상"]
+    static let filterArray = ["가나다 순", "1000m 미만", "1000m 이상"]
 }
 
 enum sectionName : Int {
@@ -27,6 +27,7 @@ class SearchViewController: BaseViewController {
     var previousSelectedIndexPath : IndexPath? = nil
     var lastSelectedIndexPath : IndexPath? = nil
     var regionFiltered : Results<Mountain> = MountainRepository.shared.regionFilteredData
+    var selectRegion : String?
     
     let realm = try! Realm()
     
@@ -84,7 +85,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
         case sectionName.Region.rawValue :
             return Data.regionArray.count
         case sectionName.Filter.rawValue :
-            return 3
+            return 1
         case sectionName.MountainList.rawValue :
             return isFiltering ? MountainRepository.shared.searchfilteredData.count : regionFiltered.count
         default :
@@ -114,17 +115,17 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableCollectionViewCell.reuseIdentifier, for: indexPath) as? TableCollectionViewCell else { return TableCollectionViewCell() }
             
             cell.Image.image = UIImage(named: "logo2")
-            cell.titleLabel.text = regionFiltered[indexPath.item].title
-            cell.altitudeLabel.text = "\(regionFiltered[indexPath.item].altitude) m"
             
-            //            if isFiltering {
-            //                cell.titleLabel.text = MountainRepository.shared.searchfilteredData[indexPath.item].title
-            //                cell.altitudeLabel.text = "\(MountainRepository.shared.searchfilteredData[indexPath.item].altitude) m"
-            //            } else {
-            //
-            //
-            //            }
-            //
+            if isFiltering {
+                cell.titleLabel.text = MountainRepository.shared.searchfilteredData[indexPath.item].title
+                cell.altitudeLabel.text = "\(MountainRepository.shared.searchfilteredData[indexPath.item].altitude) m"
+            } else {
+                cell.titleLabel.text = regionFiltered[indexPath.item].title
+                cell.altitudeLabel.text = "\(regionFiltered[indexPath.item].altitude) m"
+                
+                
+            }
+            
             return cell
             
         default :
@@ -164,9 +165,9 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             if indexPath.item == 0 {
                 regionFiltered = realm.objects(Mountain.self)
             } else {
-                var selectRegion = Data.regionArray[indexPath.item]
+                selectRegion = Data.regionArray[indexPath.item]
                 regionFiltered = realm.objects(Mountain.self).where {
-                    $0.location.contains(selectRegion)
+                    $0.location.contains(selectRegion!)
                 }
             }
             
@@ -184,18 +185,8 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             selectedCell.isSelected = true
             lastSelectedIndexPath = indexPath
             
-            if indexPath.item == 0 {
-                regionFiltered = regionFiltered.sorted(byKeyPath: "title", ascending: true)
-            } else if indexPath.item == 1 {
-              
-                //regionFiltered = regionFiltered.where{}.sorted(byKeyPath: "altitude",ascending: true)
-                
-              
-            } else {
-//                regionFiltered = regionFiltered.where{
-//                    Int($0.altitude) > 999
-//                }.sorted(byKeyPath: "altitude", ascending: false)
-            }
+            
+            regionFiltered = regionFiltered.sorted(byKeyPath: "title", ascending: true)
             
             collectionView.reloadSections(IndexSet(2...2))
             

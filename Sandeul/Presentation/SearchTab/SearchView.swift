@@ -50,7 +50,7 @@ class SearchView: BaseView {
         
         // group
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .estimated(110),
+            widthDimension: .estimated(130),
             heightDimension: .fractionalHeight(0.08)
         )
         let group = NSCollectionLayoutGroup.horizontal(
