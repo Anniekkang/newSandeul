@@ -16,6 +16,7 @@ enum titleArray {
 
 class DiaryDetailViewController: BaseViewController {
     
+    let picker = UIImagePickerController()
     let mainView = DiaryDetailView()
     override func loadView() {
         self.view = mainView
@@ -25,7 +26,6 @@ class DiaryDetailViewController: BaseViewController {
         super.viewDidLoad()
         mainView.backgroundColor = Color.shared.Gray
         mainView.tableView.sectionHeaderHeight = 5
-        mainView.searchBar.becomeFirstResponder()
         self.hideKeyboardTapped()
         navDesign()
         
@@ -61,8 +61,6 @@ class DiaryDetailViewController: BaseViewController {
         let submitItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(submitButtonTapped))
         self.navigationItem.rightBarButtonItems = [submitItem,cancelItem]
         self.navigationController?.navigationBar.isTranslucent = true
-        
-       
         self.navigationController?.navigationBar.standardAppearance = scrollNavDesign()
         self.navigationController?.navigationBar.scrollEdgeAppearance = scrollNavDesign()
         
@@ -127,12 +125,22 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
             }
             
             return cell
-        case 4 :
+        case 4 ://camera
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CameraTableViewCell.reuseIdentifier, for: indexPath) as? CameraTableViewCell else { return UITableViewCell() }
+                
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cameraImageTapped))
             
+            cell.contentView.isUserInteractionEnabled = false
+            cell.selectionStyle = .none
+            
+            cell.cameraImage.addGestureRecognizer(tapGesture)
+            cell.cameraImage.isUserInteractionEnabled = true
             return cell
-        case 5 :
+        case 5 : //memotextView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MemoTableViewCell.reuseIdentifier, for: indexPath) as? MemoTableViewCell else { return UITableViewCell() }
+            
+            cell.contentView.isUserInteractionEnabled = false
+            cell.selectionStyle = .none
             
             cell.textView.delegate = self
             
@@ -142,6 +150,27 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         
+    }
+    
+    @objc func cameraImageTapped() {
+    
+        checkCameraPermission()
+        
+        let alert = UIAlertController(title: "이미지", message: "이미지를 가져올 곳을 골라주세요", preferredStyle: .actionSheet)
+        let cameraButton = UIAlertAction(title: "카메라로 찍기", style: .default) { UIAlertAction in
+            self.openCamera()
+        }
+        let albumButton = UIAlertAction(title: "앨범에서 가져오기", style: .default) { UIAlertAction in
+            self.openAlbum()
+        }
+        
+        let cancelButton = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(cameraButton)
+        alert.addAction(albumButton)
+        alert.addAction(cancelButton)
+        present(alert, animated: true)
+      
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

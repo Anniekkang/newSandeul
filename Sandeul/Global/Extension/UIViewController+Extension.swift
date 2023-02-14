@@ -7,17 +7,18 @@
 
 import UIKit
 import Toast
+import AVFoundation
 
 extension UIViewController {
     
     func showToast(view : UIView, Message : String, title : String) {
         view.makeToast(Message, duration: 3,
-                                point: CGPoint(x: view.center.x, y: 250),
-                               title: title,
-                               image: nil,
+                       point: CGPoint(x: view.center.x, y: 250),
+                       title: title,
+                       image: nil,
                        style: self.toastStyle(),
-                               completion: nil)
-     
+                       completion: nil)
+        
     }
     
     func toastStyle() -> ToastStyle {
@@ -30,17 +31,25 @@ extension UIViewController {
         return style
         
     }
-  
+    
     func hideKeyboardTapped() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
-    
+    func checkCameraPermission(){
+        AVCaptureDevice.requestAccess(for:.video ,completionHandler: { (granted: Bool) in
+            if granted {
+                print("Camera: 권한 허용")
+            } else {
+                print("Camera: 권한 거부")
+            }
+        })
+    }
     
 }

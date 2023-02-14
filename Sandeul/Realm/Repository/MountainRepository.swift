@@ -36,7 +36,7 @@ class MountainRepository : RepositoryType {
         
         
         filteredData = self.realm.objects(Mountain.self).where {
-            $0.location.contains("\(SecondLaunchViewController.shared.currentLocation)")
+            $0.location.contains("\(LaunchViewController.currentLocation ?? "경기도")")
         }
         
         if filteredData == nil {
@@ -45,6 +45,7 @@ class MountainRepository : RepositoryType {
             }
         }
         print(#function)
+        print("currentlocation ==== \(LaunchViewController.currentLocation)")
         print(filteredData!)
        
         

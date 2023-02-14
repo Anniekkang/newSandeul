@@ -53,7 +53,7 @@ extension nearbyDetailViewController : UICollectionViewDelegate, UICollectionVie
             cell.imageView.image = UIImage(named: array.randomElement() ?? "산1")
         }
         cell.titleLabel.text = MountainRepository.shared.filteredData[indexPath.item].title
-        cell.regionLabel.text = SecondLaunchViewController.shared.currentLocation
+        cell.regionLabel.text = LaunchViewController.currentLocation
         cell.heightLabel.text = "\(MountainRepository.shared.filteredData[indexPath.item].altitude)m"
         
         return cell

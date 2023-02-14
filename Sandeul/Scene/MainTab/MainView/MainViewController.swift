@@ -99,7 +99,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             cell.imageView.image = UIImage(named: array[indexPath.item])
             cell.titleLabel.text = MountainRepository.shared.filteredData[indexPath.item].title
             cell.heightLabel.text = "\(MountainRepository.shared.filteredData[indexPath.item].altitude) m"
-            cell.regionLabel.text = SecondLaunchViewController.shared.currentLocation
+            cell.regionLabel.text = LaunchViewController.currentLocation
             
             return cell
             
@@ -113,7 +113,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
             
             cell.titleLabel.text = MountainRepository.shared.filteredData.first?.title
-            cell.locationLabel.text = SecondLaunchViewController.shared.currentLocation
+            cell.locationLabel.text = LaunchViewController.currentLocation
             cell.heightLabel.text = "\(MountainRepository.shared.filteredData.first?.altitude ?? "확인불가능") m"
             cell.mountainView.image = UIImage(named: array[4])
             
@@ -124,7 +124,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
             
             cell.titleLabel.text = MountainRepository.shared.filteredData.last?.title
-            cell.locationLabel.text = SecondLaunchViewController.shared.currentLocation
+            cell.locationLabel.text = LaunchViewController.currentLocation
             cell.heightLabel.text = "\(MountainRepository.shared.filteredData.last!.altitude) m"
             cell.mountainView.image = UIImage(named: array[5])
             

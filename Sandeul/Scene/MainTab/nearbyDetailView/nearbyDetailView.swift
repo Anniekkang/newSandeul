@@ -27,7 +27,7 @@ class nearbyDetailView: BaseView {
     
     let label : UILabel = {
        let label = UILabel()
-        label.text = SecondLaunchViewController.shared.currentLocation
+        label.text = LaunchViewController.currentLocation
         label.textColor = Color.shared.Gray
         label.font = variousFont.largebold
         label.textAlignment = .left

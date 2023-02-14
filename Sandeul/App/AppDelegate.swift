@@ -6,15 +6,29 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+    
+    let realm = try! Realm()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
         UIView.appearance().tintColor = Color.shared.Green
+        
+        
+        
+        do {
+            let version = try schemaVersionAtURL(realm.configuration.fileURL!)
+            print("SchemaVersion:\(version)")
+        } catch {
+            print(error)
+        }
+
+        
         
         return true
     }

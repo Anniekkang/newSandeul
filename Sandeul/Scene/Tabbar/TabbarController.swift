@@ -37,7 +37,7 @@ class TabbarController : UITabBarController {
         nav3.tabBarItem = thirdBarItem
         nav4.tabBarItem = fourthBarItem
         
-        setViewControllers([nav1,nav2,nav3, nav4], animated: true)
+        setViewControllers([nav1,nav2,nav3], animated: true)
        
         
     }

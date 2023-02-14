@@ -9,7 +9,11 @@ import UIKit
 
 extension DiaryDetailViewController : UISearchBarDelegate {
    
-    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        let nav = SearchMountainsViewController()
+        self.navigationController?.present(nav, animated: true)
+        return true
+    }
     
 }
 
@@ -43,6 +47,7 @@ extension DiaryDetailViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print(#function)
     }
+    
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

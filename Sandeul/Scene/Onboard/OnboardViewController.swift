@@ -19,7 +19,7 @@ class OnboardViewController: UIViewController {
         
         onboardingController.delegate = self
         navigationController?.present(onboardingController, animated: false)
-        
+        UserDefaults.standard.set("Yes", forKey: "isFirstTime")
     }
     
 }

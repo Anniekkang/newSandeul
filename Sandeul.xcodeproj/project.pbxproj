@@ -70,6 +70,8 @@
 		9ED07F2529959B68002A1774 /* CameraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F2429959B68002A1774 /* CameraTableViewCell.swift */; };
 		9ED07F2829959C56002A1774 /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F2729959C56002A1774 /* MemoTableViewCell.swift */; };
 		9ED07F2F299B2BBF002A1774 /* Text + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F2E299B2BBE002A1774 /* Text + Extension.swift */; };
+		9ED07F32299B8436002A1774 /* Camera + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F31299B8436002A1774 /* Camera + Extension.swift */; };
+		9ED07F3F299BA320002A1774 /* SearchMountainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F3E299BA320002A1774 /* SearchMountainsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +163,8 @@
 		9ED07F2429959B68002A1774 /* CameraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewCell.swift; sourceTree = "<group>"; };
 		9ED07F2729959C56002A1774 /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 		9ED07F2E299B2BBE002A1774 /* Text + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text + Extension.swift"; sourceTree = "<group>"; };
+		9ED07F31299B8436002A1774 /* Camera + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Camera + Extension.swift"; sourceTree = "<group>"; };
+		9ED07F3E299BA320002A1774 /* SearchMountainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMountainsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,7 +391,7 @@
 				9ED07F2629959C3E002A1774 /* TableViewCell */,
 				9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */,
 				9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */,
-				9ED07F2E299B2BBE002A1774 /* Text + Extension.swift */,
+				9ED07F33299B8444002A1774 /* Extension */,
 			);
 			path = DiaryDetail;
 			sourceTree = "<group>";
@@ -424,6 +428,7 @@
 			children = (
 				9EB5CF2C298E6D54005B4A7C /* LaunchViewController.swift */,
 				9EB5CF2E298E6D63005B4A7C /* LaunchView.swift */,
+				9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -495,7 +500,6 @@
 			children = (
 				9EC5C1262993901800B93BCB /* SecondLaunchViewController.swift */,
 				9EC5C1282993902500B93BCB /* SecondLaunchView.swift */,
-				9EC5C11E29921E9500B93BCB /* CoreLocationExtension.swift */,
 			);
 			path = SecondLaunchScreen;
 			sourceTree = "<group>";
@@ -522,8 +526,18 @@
 		9ED07F30299B7B16002A1774 /* SearchMountains */ = {
 			isa = PBXGroup;
 			children = (
+				9ED07F3E299BA320002A1774 /* SearchMountainsViewController.swift */,
 			);
 			path = SearchMountains;
+			sourceTree = "<group>";
+		};
+		9ED07F33299B8444002A1774 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9ED07F31299B8436002A1774 /* Camera + Extension.swift */,
+				9ED07F2E299B2BBE002A1774 /* Text + Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -663,6 +677,7 @@
 				9E03DCF3298D1C66006381E5 /* AppDelegate.swift in Sources */,
 				9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */,
 				9EC5C11F29921E9500B93BCB /* CoreLocationExtension.swift in Sources */,
+				9ED07F3F299BA320002A1774 /* SearchMountainsViewController.swift in Sources */,
 				9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */,
 				9EB5CF43298FC352005B4A7C /* UIViewController+Extension.swift in Sources */,
 				9EC5C12429922D9F00B93BCB /* MountainRepository.swift in Sources */,
@@ -674,6 +689,7 @@
 				9EB5CF5F2990726D005B4A7C /* HomeSection.swift in Sources */,
 				9EC5C1132990E51C00B93BCB /* HeaderView.swift in Sources */,
 				9EB5CEA4298D3D71005B4A7C /* SettingViewController.swift in Sources */,
+				9ED07F32299B8436002A1774 /* Camera + Extension.swift in Sources */,
 				9EB5CE9A298D375F005B4A7C /* TabbarController.swift in Sources */,
 				9E03DCF5298D1C66006381E5 /* SceneDelegate.swift in Sources */,
 				9EB5CEA0298D37C4005B4A7C /* DiaryViewController.swift in Sources */,
@@ -832,6 +848,7 @@
 				DEVELOPMENT_TEAM = K27UK338MM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sandeul/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치기반 컨텐츠를 위해서 GPS 사용이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -842,7 +859,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Mountaining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -861,6 +878,7 @@
 				DEVELOPMENT_TEAM = K27UK338MM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sandeul/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치기반 컨텐츠를 위해서 GPS 사용이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -871,7 +889,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Mountaining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

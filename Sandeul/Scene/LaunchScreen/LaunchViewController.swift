@@ -9,6 +9,7 @@ import UIKit
 import BaseFrame
 import NVActivityIndicatorView
 import RealmSwift
+import CoreLocation
 
 
 //RealmSave VC
@@ -16,6 +17,10 @@ class LaunchViewController: BaseViewController {
     
     let realm = try! Realm()
     
+    var currentLongtitude : CLLocationDegrees?
+    var currentLatitude : CLLocationDegrees?
+    var locationManager = CLLocationManager()
+    static var currentLocation : String?
     
     
     let indicator = NVActivityIndicatorView(frame: CGRect(x: UIScreen.main.bounds.size.width * 0.45,y:UIScreen.main.bounds.size.height * 0.8, width: 50, height: 50),type: .ballBeat,color: Color.shared.Green,padding: 0)
@@ -31,6 +36,7 @@ class LaunchViewController: BaseViewController {
         
         self.view.addSubview(indicator)
         indicator.startAnimating()
+        self.locationSetup()
         
         DispatchQueue.global().async {
             guard let url = URL(string: Endpoint.mountainURL) else { return }
@@ -39,12 +45,13 @@ class LaunchViewController: BaseViewController {
             self.setParser(from: url)
             print("parsing done")
             
-            
             DispatchQueue.main.sync {
+                if !SetUserdefaults.isFirstTime() {
+                    self.realmSave()
+                    self.fetchRealm()
+                }
                 
-                self.realmSave()
-                self.fetchRealm()
-                UserDefaults.standard.set("Yes", forKey: "isFirstTime")
+                
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 sceneDelegate?.window?.rootViewController = SecondLaunchViewController()

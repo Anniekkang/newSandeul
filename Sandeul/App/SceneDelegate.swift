@@ -17,14 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let Scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: Scene)
-        let nav = UINavigationController(rootViewController: DiaryViewController())//OnboardViewController())
+        let nav = UINavigationController(rootViewController: OnboardViewController())
         
-        
+        window?.overrideUserInterfaceStyle = .light
 
         if SetUserdefaults.isFirstTime() {
             window?.rootViewController = nav //true
         } else {
-            window?.rootViewController = nav //SecondLaunchViewController() //false
+            window?.rootViewController = LaunchViewController() //false
         }
 
         window?.makeKeyAndVisible()
