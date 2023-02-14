@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiaryEditView: UIView {
+class ScheduleView : UIView {
 
     /*
     // Only override draw() if you perform custom drawing.

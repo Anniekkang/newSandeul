@@ -15,7 +15,7 @@ enum titleArray {
 }
 
 class DiaryDetailViewController: BaseViewController {
-
+    
     let mainView = DiaryDetailView()
     override func loadView() {
         self.view = mainView
@@ -28,9 +28,13 @@ class DiaryDetailViewController: BaseViewController {
         mainView.searchBar.becomeFirstResponder()
         self.hideKeyboardTapped()
         navDesign()
+        
     }
-
- 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     //searchBar 높이 조정인데 not working...
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -56,9 +60,21 @@ class DiaryDetailViewController: BaseViewController {
         let cancelItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
         let submitItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(submitButtonTapped))
         self.navigationItem.rightBarButtonItems = [submitItem,cancelItem]
-        self.navigationController?.navigationBar.backgroundColor = Color.shared.white
-        self.navigationController?.navigationBar.barTintColor = .clear
+        self.navigationController?.navigationBar.isTranslucent = true
+        
+       
+        self.navigationController?.navigationBar.standardAppearance = scrollNavDesign()
+        self.navigationController?.navigationBar.scrollEdgeAppearance = scrollNavDesign()
+        
+    }
     
+    func scrollNavDesign() -> UINavigationBarAppearance {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = Color.shared.white
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        
+        return appearance
     }
     
     @objc func cancelButtonTapped() {
@@ -77,7 +93,7 @@ class DiaryDetailViewController: BaseViewController {
         mainView.tableView.register(CameraTableViewCell.self, forCellReuseIdentifier: CameraTableViewCell.reuseIdentifier)
         mainView.tableView.register(MemoTableViewCell.self, forCellReuseIdentifier: MemoTableViewCell.reuseIdentifier)
         
-    
+        
     }
 }
 
@@ -91,12 +107,12 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        switch indexPath.section {
         
+        switch indexPath.section {
+            
         case 0,1,2,3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryDetailTableViewCell.reuseIdentifier, for: indexPath) as? DiaryDetailTableViewCell else { return UITableViewCell() }
-
+            
             cell.selectionStyle = .none
             cell.contentView.isUserInteractionEnabled = false
             
@@ -104,12 +120,12 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
                 cell.titleLabel.text = titleArray.firstTitle[indexPath.item]
                 cell.contentLabel.placeholder = titleArray.firstTitle[indexPath.item]
                 cell.contentLabel.delegate = self
-
+                
             } else {
                 cell.titleLabel.text = titleArray.secondTitle[indexPath.section]
                 cell.contentLabel.placeholder = titleArray.secondTitle[indexPath.section]
             }
-           
+            
             return cell
         case 4 :
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CameraTableViewCell.reuseIdentifier, for: indexPath) as? CameraTableViewCell else { return UITableViewCell() }
@@ -130,7 +146,7 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath.section == 4 || indexPath.section == 5 ? UIScreen.main.bounds.size.width * 0.4 : 50    }
-
+    
     
     
 }

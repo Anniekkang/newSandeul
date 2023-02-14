@@ -28,8 +28,8 @@
 		9EB5CF0A298DEFDF005B4A7C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB5CF09298DEFDF005B4A7C /* SnapKit */; };
 		9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF0C298E1FA3005B4A7C /* DetailView.swift */; };
 		9EB5CF0F298E1FAE005B4A7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF0E298E1FAE005B4A7C /* DetailViewController.swift */; };
-		9EB5CF15298E30D2005B4A7C /* DiaryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF14298E30D2005B4A7C /* DiaryEditViewController.swift */; };
-		9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */; };
+		9EB5CF15298E30D2005B4A7C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF14298E30D2005B4A7C /* ScheduleViewController.swift */; };
+		9EB5CF17298E30E1005B4A7C /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF16298E30E0005B4A7C /* ScheduleView.swift */; };
 		9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */; };
 		9EB5CF1B298E30F7005B4A7C /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */; };
 		9EB5CF1F298E4C96005B4A7C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5CF1E298E4C96005B4A7C /* .gitignore */; };
@@ -124,8 +124,8 @@
 		9EB5CF03298DEF04005B4A7C /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		9EB5CF0C298E1FA3005B4A7C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9EB5CF0E298E1FAE005B4A7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		9EB5CF14298E30D2005B4A7C /* DiaryEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditViewController.swift; sourceTree = "<group>"; };
-		9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEditView.swift; sourceTree = "<group>"; };
+		9EB5CF14298E30D2005B4A7C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		9EB5CF16298E30E0005B4A7C /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
 		9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 		9EB5CF1E298E4C96005B4A7C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				9EB5CEAA298D3E30005B4A7C /* SettingTab */,
-				9EB5CF11298E30AD005B4A7C /* DiaryEdit */,
+				9EB5CF11298E30AD005B4A7C /* ScheduleView */,
 				9EB5CF10298E309E005B4A7C /* DiaryDetail */,
 				9EB5CEA9298D3E29005B4A7C /* DiaryTab */,
 				9EB5CF0B298E1F83005B4A7C /* SearchDetail */,
@@ -383,6 +383,7 @@
 		9EB5CF10298E309E005B4A7C /* DiaryDetail */ = {
 			isa = PBXGroup;
 			children = (
+				9ED07F30299B7B16002A1774 /* SearchMountains */,
 				9ED07F2629959C3E002A1774 /* TableViewCell */,
 				9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */,
 				9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */,
@@ -391,13 +392,13 @@
 			path = DiaryDetail;
 			sourceTree = "<group>";
 		};
-		9EB5CF11298E30AD005B4A7C /* DiaryEdit */ = {
+		9EB5CF11298E30AD005B4A7C /* ScheduleView */ = {
 			isa = PBXGroup;
 			children = (
-				9EB5CF14298E30D2005B4A7C /* DiaryEditViewController.swift */,
-				9EB5CF16298E30E0005B4A7C /* DiaryEditView.swift */,
+				9EB5CF14298E30D2005B4A7C /* ScheduleViewController.swift */,
+				9EB5CF16298E30E0005B4A7C /* ScheduleView.swift */,
 			);
-			path = DiaryEdit;
+			path = ScheduleView;
 			sourceTree = "<group>";
 		};
 		9EB5CF20298E4CD4005B4A7C /* Data */ = {
@@ -516,6 +517,13 @@
 				9E55BE78299590DA00E40754 /* DiaryDetailTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		9ED07F30299B7B16002A1774 /* SearchMountains */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchMountains;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,7 +657,7 @@
 				9EB5CEAC298D3E50005B4A7C /* MainView.swift in Sources */,
 				9ED07F2529959B68002A1774 /* CameraTableViewCell.swift in Sources */,
 				9ED07F2F299B2BBF002A1774 /* Text + Extension.swift in Sources */,
-				9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */,
+				9EB5CF17298E30E1005B4A7C /* ScheduleView.swift in Sources */,
 				9EB5CF25298E50E5005B4A7C /* Endpoint.swift in Sources */,
 				9EB5CF41298FA348005B4A7C /* OnboardingHelper.swift in Sources */,
 				9E03DCF3298D1C66006381E5 /* AppDelegate.swift in Sources */,
@@ -660,7 +668,7 @@
 				9EC5C12429922D9F00B93BCB /* MountainRepository.swift in Sources */,
 				9E66B33429909D7C00D22126 /* reuseIdentifier.swift in Sources */,
 				9EB5CF6229907A75005B4A7C /* FirstCollectionViewCell.swift in Sources */,
-				9EB5CF15298E30D2005B4A7C /* DiaryEditViewController.swift in Sources */,
+				9EB5CF15298E30D2005B4A7C /* ScheduleViewController.swift in Sources */,
 				9EB5CEA2298D3CBB005B4A7C /* Color.swift in Sources */,
 				9EB5CF04298DEF04005B4A7C /* DiaryView.swift in Sources */,
 				9EB5CF5F2990726D005B4A7C /* HomeSection.swift in Sources */,

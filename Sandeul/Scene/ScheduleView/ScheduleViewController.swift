@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiaryEditViewController: UIViewController {
+class ScheduleViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
