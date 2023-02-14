@@ -69,6 +69,7 @@
 		9EC5C12F29948C6200B93BCB /* Search + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC5C12E29948C6200B93BCB /* Search + Extension.swift */; };
 		9ED07F2529959B68002A1774 /* CameraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F2429959B68002A1774 /* CameraTableViewCell.swift */; };
 		9ED07F2829959C56002A1774 /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F2729959C56002A1774 /* MemoTableViewCell.swift */; };
+		9ED07F2F299B2BBF002A1774 /* Text + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED07F2E299B2BBE002A1774 /* Text + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		9EC5C12E29948C6200B93BCB /* Search + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search + Extension.swift"; sourceTree = "<group>"; };
 		9ED07F2429959B68002A1774 /* CameraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewCell.swift; sourceTree = "<group>"; };
 		9ED07F2729959C56002A1774 /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
+		9ED07F2E299B2BBE002A1774 /* Text + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,14 +208,14 @@
 				9EB5CEB5298D4116005B4A7C /* Realm */,
 				9EB5CEB3298D4101005B4A7C /* Network */,
 				9E03DD08298D1D00006381E5 /* Global */,
-				9E03DD06298D1CF4006381E5 /* Presentation */,
+				9E03DD06298D1CF4006381E5 /* Scene */,
 				9E03DCFB298D1C69006381E5 /* Assets.xcassets */,
 				9E03DD00298D1C69006381E5 /* Info.plist */,
 			);
 			path = Sandeul;
 			sourceTree = "<group>";
 		};
-		9E03DD06298D1CF4006381E5 /* Presentation */ = {
+		9E03DD06298D1CF4006381E5 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				9EB5CEAA298D3E30005B4A7C /* SettingTab */,
@@ -228,7 +230,7 @@
 				9EB5CEA6298D3E0E005B4A7C /* Onboard */,
 				9EB5CEA5298D3E07005B4A7C /* Tabbar */,
 			);
-			path = Presentation;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		9E03DD07298D1CFB006381E5 /* Resource */ = {
@@ -384,6 +386,7 @@
 				9ED07F2629959C3E002A1774 /* TableViewCell */,
 				9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */,
 				9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */,
+				9ED07F2E299B2BBE002A1774 /* Text + Extension.swift */,
 			);
 			path = DiaryDetail;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				9EB5CF2A298E6CFC005B4A7C /* XMLParsing.swift in Sources */,
 				9EB5CEAC298D3E50005B4A7C /* MainView.swift in Sources */,
 				9ED07F2529959B68002A1774 /* CameraTableViewCell.swift in Sources */,
+				9ED07F2F299B2BBF002A1774 /* Text + Extension.swift in Sources */,
 				9EB5CF17298E30E1005B4A7C /* DiaryEditView.swift in Sources */,
 				9EB5CF25298E50E5005B4A7C /* Endpoint.swift in Sources */,
 				9EB5CF41298FA348005B4A7C /* OnboardingHelper.swift in Sources */,
@@ -820,6 +824,7 @@
 				DEVELOPMENT_TEAM = K27UK338MM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sandeul/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치기반 컨텐츠를 위해서 GPS 사용이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -830,7 +835,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Sandeul;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Mountaining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -848,6 +853,7 @@
 				DEVELOPMENT_TEAM = K27UK338MM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sandeul/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치기반 컨텐츠를 위해서 GPS 사용이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -858,7 +864,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Sandeul;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Anniekang.Mountaining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

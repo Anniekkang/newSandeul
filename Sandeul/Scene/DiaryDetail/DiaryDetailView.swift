@@ -21,7 +21,7 @@ class DiaryDetailView: BaseView {
        let bar = UISearchBar()
         bar.placeholder = "일정을 등록할 산 이름을 검색하세요"
         bar.searchBarStyle = .minimal
-        bar.keyboardType = .namePhonePad
+        bar.keyboardType = .emailAddress
         bar.searchTextField.backgroundColor = Color.shared.white
         bar.searchTextField.textColor = Color.shared.Green
         bar.isTranslucent = false

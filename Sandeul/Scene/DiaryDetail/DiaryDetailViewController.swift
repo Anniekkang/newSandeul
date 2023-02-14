@@ -9,7 +9,7 @@ import UIKit
 import BaseFrame
 
 enum titleArray {
-    static let firstTitle = ["지역","고도"]
+    static let firstTitle = ["산 이름","지역","고도"]
     static let secondTitle = ["","날짜","산행시간","거리"]
     
 }
@@ -25,8 +25,11 @@ class DiaryDetailViewController: BaseViewController {
         super.viewDidLoad()
         mainView.backgroundColor = Color.shared.Gray
         mainView.tableView.sectionHeaderHeight = 5
+        mainView.searchBar.becomeFirstResponder()
+        self.hideKeyboardTapped()
         navDesign()
     }
+
  
     //searchBar 높이 조정인데 not working...
     override func viewWillLayoutSubviews() {
@@ -52,8 +55,7 @@ class DiaryDetailViewController: BaseViewController {
     func navDesign() {
         let cancelItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
         let submitItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(submitButtonTapped))
-        self.navigationItem.rightBarButtonItem = submitItem
-        self.navigationItem.leftBarButtonItem = cancelItem
+        self.navigationItem.rightBarButtonItems = [submitItem,cancelItem]
         self.navigationController?.navigationBar.backgroundColor = Color.shared.white
         self.navigationController?.navigationBar.barTintColor = .clear
     
@@ -85,7 +87,7 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
         return 6
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 2 : 1
+        return section == 0 ? 3 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,9 +96,15 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
         
         case 0,1,2,3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryDetailTableViewCell.reuseIdentifier, for: indexPath) as? DiaryDetailTableViewCell else { return UITableViewCell() }
+
+            cell.selectionStyle = .none
+            cell.contentView.isUserInteractionEnabled = false
+            
             if indexPath.section == 0 {
                 cell.titleLabel.text = titleArray.firstTitle[indexPath.item]
                 cell.contentLabel.placeholder = titleArray.firstTitle[indexPath.item]
+                cell.contentLabel.delegate = self
+
             } else {
                 cell.titleLabel.text = titleArray.secondTitle[indexPath.section]
                 cell.contentLabel.placeholder = titleArray.secondTitle[indexPath.section]
@@ -128,36 +136,3 @@ extension DiaryDetailViewController : UITableViewDelegate, UITableViewDataSource
 }
 
 
-extension DiaryDetailViewController : UISearchBarDelegate {
-    
-    
-    
-    
-    
-}
-
-extension DiaryDetailViewController : UITextViewDelegate {
-    
-    
-    //textView - focus happening
-    func textViewDidBeginEditing(_ textView: UITextView) {
-       
-        if textView.text == MemoTableViewCell.textViewPlaceHolder {
-            textView.text = nil
-            textView.textColor = Color.shared.Green
-        }
-        
-    }
-    
-    //textView - focus lost
-    func textViewDidEndEditing(_ textView: UITextView) {
-    
-        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            textView.text = MemoTableViewCell.textViewPlaceHolder
-            textView.textColor = Color.shared.Gray
-        }
-    }
-    
-    
-    
-}

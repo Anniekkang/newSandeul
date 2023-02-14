@@ -14,6 +14,7 @@ class DiaryViewController: BaseViewController {
     
     let mainView = DiaryView()
     lazy var calendar = mainView.calendar
+    let plusButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     
     override func loadView() {
         self.view = mainView
@@ -23,8 +24,17 @@ class DiaryViewController: BaseViewController {
         super.viewDidLoad()
         
         navDesign()
-        customButton()
         calendarDesign()
+        customButton()
+     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        plusButton.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        plusButton.isHidden = true
     }
     
     func navDesign() {
@@ -34,7 +44,7 @@ class DiaryViewController: BaseViewController {
     }
     
     func customButton() {
-        let plusButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        
         plusButton.image = UIImage(named: "addsquare")
         self.navigationController?.navigationBar.addSubview(plusButton)
         
@@ -50,14 +60,12 @@ class DiaryViewController: BaseViewController {
     }
     
     @objc func plusButtonTapped() {
-        let requestAlert = UIAlertController(title: "안내", message: "현재 서비스 준비 중 입니다", preferredStyle: .alert)
-        let okayButton = UIAlertAction(title: "확인", style: .destructive)
-        requestAlert.addAction(okayButton)
-        present(requestAlert, animated: true)
+//        let requestAlert = UIAlertController(title: "안내", message: "현재 서비스 준비 중 입니다", preferredStyle: .alert)
+//        let okayButton = UIAlertAction(title: "확인", style: .destructive)
+//        requestAlert.addAction(okayButton)
+//        present(requestAlert, animated: true)
         
-        //디테일 뷰 구현 후 추후 구현
-//        let nav = UINavigationController(rootViewController: DiaryDetailViewController())
-//        self.navigationController?.present(nav, animated: true)
+        self.navigationController?.pushViewController(DiaryDetailViewController(), animated: true)
     }
     
     func calendarDesign() {

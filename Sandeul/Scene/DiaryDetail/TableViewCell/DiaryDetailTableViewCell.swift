@@ -23,9 +23,10 @@ class DiaryDetailTableViewCell: BaseTableViewCell {
     let contentLabel : UITextField = {
         let label = UITextField()
         label.placeholder = "contents"
-        label.textColor = Color.shared.Gray
+        label.textColor = Color.shared.Green
         label.font = variousFont.smallMedium
         label.textAlignment = .right
+        label.keyboardType = .emailAddress
         return label
     }()
     
