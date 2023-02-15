@@ -88,7 +88,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
+        MountainRepository.shared.filteredData = MountainRepository.shared.filteredData.sorted(byKeyPath: "altitude", ascending: true)
         switch indexPath.section {
             //near Mountains
         case 0 :
@@ -114,13 +114,12 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             if lowerMountains.isEmpty {
                 lowerMountains =  MountainRepository.shared.filteredData.filter { Int($0.altitude)! > 1000 }
+                
             }
-            
             cell.titleLabel.text = lowerMountains.first?.title
             cell.locationLabel.text = LaunchViewController.currentLocation
             cell.heightLabel.text = "\(lowerMountains.first?.altitude ?? "확인불가능") m"
             cell.mountainView.image = UIImage(named: array[4])
-            
             
             
             
@@ -132,14 +131,17 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             
             var highestMountains = MountainRepository.shared.filteredData.filter { Int($0.altitude)! > 1000 }
             
+            
             if highestMountains.isEmpty {
                 highestMountains =  MountainRepository.shared.filteredData.filter { Int($0.altitude)! < 1000 }
             }
+                cell.titleLabel.text = highestMountains.last?.title
+                cell.locationLabel.text = LaunchViewController.currentLocation
+                cell.heightLabel.text = "\(highestMountains.last!.altitude) m"
+                cell.mountainView.image = UIImage(named: array[5])
             
-            cell.titleLabel.text = highestMountains.first?.title
-            cell.locationLabel.text = LaunchViewController.currentLocation
-            cell.heightLabel.text = "\(highestMountains.first!.altitude) m"
-            cell.mountainView.image = UIImage(named: array[5])
+            
+            
             
             return cell
             
