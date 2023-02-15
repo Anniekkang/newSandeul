@@ -46,11 +46,14 @@ class LaunchViewController: BaseViewController {
             print("parsing done")
             
             DispatchQueue.main.sync {
-                if !SetUserdefaults.isFirstTime() {
+                if SetUserdefaults.isFirstTime() {
                     self.realmSave()
                     self.fetchRealm()
+                    UserDefaults.standard.set("Yes", forKey: "isFirstTime")
+            
                 }
                 
+                print("====userdefaults : \(UserDefaults.standard.string(forKey: "isFirstTime"))")
                 
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
@@ -63,6 +66,7 @@ class LaunchViewController: BaseViewController {
     
    
     func realmSave() {
+        print(#function)
             do {
                 try self.realm.write {
                     

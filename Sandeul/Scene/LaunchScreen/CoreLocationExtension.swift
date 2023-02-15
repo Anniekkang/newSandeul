@@ -73,7 +73,6 @@ extension LaunchViewController : CLLocationManagerDelegate {
             print("GPS 권한 설정됨")
         case .restricted, .notDetermined:
             print("GPS 권한 설정되지 않음")
-            getUserPermisson(mainView: self.mainView)
             self.locationManager.requestWhenInUseAuthorization()
         case .denied:
             print("GPS 권한 요청 거부됨")

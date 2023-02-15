@@ -88,8 +88,6 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        MountainRepository.shared.filteredData = MountainRepository.shared.filteredData.sorted(byKeyPath: "altitude", ascending: true)
-        
         
         switch indexPath.section {
             //near Mountains
@@ -112,10 +110,19 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
         case 2 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
             
-            cell.titleLabel.text = MountainRepository.shared.filteredData.first?.title
+            var lowerMountains = MountainRepository.shared.filteredData.filter { Int($0.altitude)! < 1000 }
+            
+            if lowerMountains.isEmpty {
+                lowerMountains =  MountainRepository.shared.filteredData.filter { Int($0.altitude)! > 1000 }
+            }
+            
+            cell.titleLabel.text = lowerMountains.first?.title
             cell.locationLabel.text = LaunchViewController.currentLocation
-            cell.heightLabel.text = "\(MountainRepository.shared.filteredData.first?.altitude ?? "확인불가능") m"
+            cell.heightLabel.text = "\(lowerMountains.first?.altitude ?? "확인불가능") m"
             cell.mountainView.image = UIImage(named: array[4])
+            
+            
+            
             
             return cell
             
@@ -123,9 +130,15 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
         case 3 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThirdCollectionViewCell.reuseIdentifier, for: indexPath) as! ThirdCollectionViewCell
             
-            cell.titleLabel.text = MountainRepository.shared.filteredData.last?.title
+            var highestMountains = MountainRepository.shared.filteredData.filter { Int($0.altitude)! > 1000 }
+            
+            if highestMountains.isEmpty {
+                highestMountains =  MountainRepository.shared.filteredData.filter { Int($0.altitude)! < 1000 }
+            }
+            
+            cell.titleLabel.text = highestMountains.first?.title
             cell.locationLabel.text = LaunchViewController.currentLocation
-            cell.heightLabel.text = "\(MountainRepository.shared.filteredData.last!.altitude) m"
+            cell.heightLabel.text = "\(highestMountains.first!.altitude) m"
             cell.mountainView.image = UIImage(named: array[5])
             
             return cell
@@ -152,10 +165,10 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             header.label.text = "일정"
             header.arrow.isHidden = true
         } else if indexPath.section == 2{
-            header.label.text = "근처에 가장 낮은 산"
+            header.label.text = "근처에 낮은 산"
             header.arrow.isHidden = true
         } else {
-            header.label.text = "근처에 가장 높은 산"
+            header.label.text = "근처에 높은 산"
             header.arrow.isHidden = true
         }
         
