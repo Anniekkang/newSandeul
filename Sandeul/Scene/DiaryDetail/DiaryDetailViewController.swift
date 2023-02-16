@@ -32,29 +32,9 @@ class DiaryDetailViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+       self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    //searchBar 높이 조정인데 not working...
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.mainView.searchBar.layoutIfNeeded()
-        self.mainView.searchBar.layoutSubviews()
-        
-        for subView in mainView.searchBar.subviews
-        {
-            for subsubView in subView.subviews
-            {
-                if let textField = subsubView as? UITextField
-                {
-                    var currentTextFieldBounds = textField.bounds
-                    currentTextFieldBounds.size.height = 80
-                    textField.bounds = currentTextFieldBounds
-                    textField.borderStyle = .roundedRect
-                }
-            }
-        }
-    }
     
     func navDesign() {
         let cancelItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtonTapped))
@@ -63,6 +43,7 @@ class DiaryDetailViewController: BaseViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.standardAppearance = scrollNavDesign()
         self.navigationController?.navigationBar.scrollEdgeAppearance = scrollNavDesign()
+        self.navigationController?.navigationBar.compactAppearance = scrollNavDesign()
         
     }
     
@@ -70,8 +51,8 @@ class DiaryDetailViewController: BaseViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.backgroundColor = Color.shared.white
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        
+        //self.navigationController?.navigationBar.prefersLargeTitles = false
+        searchBarSetup()
         return appearance
     }
     
@@ -84,7 +65,7 @@ class DiaryDetailViewController: BaseViewController {
     }
     
     override func configure() {
-        mainView.searchBar.delegate = self
+      //  mainView.searchBar.delegate = self
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.register(DiaryDetailTableViewCell.self, forCellReuseIdentifier: DiaryDetailTableViewCell.reuseIdentifier)

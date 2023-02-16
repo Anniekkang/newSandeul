@@ -15,6 +15,9 @@
 		9E66B33029909BB500D22126 /* BaseFrame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E66B32D29909B6100D22126 /* BaseFrame.framework */; };
 		9E66B33129909BB500D22126 /* BaseFrame.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E66B32D29909B6100D22126 /* BaseFrame.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E66B33429909D7C00D22126 /* reuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66B33329909D7C00D22126 /* reuseIdentifier.swift */; };
+		9E7032AD299C69A200101AD1 /* SearchMountainsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7032AC299C69A100101AD1 /* SearchMountainsView.swift */; };
+		9E7032AF299C6B5300101AD1 /* SearchMountainsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7032AE299C6B5300101AD1 /* SearchMountainsTableViewCell.swift */; };
+		9E7032B1299C6F3500101AD1 /* SearchBar + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7032B0299C6F3400101AD1 /* SearchBar + Extension.swift */; };
 		9EB5CE9A298D375F005B4A7C /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CE99298D375F005B4A7C /* TabbarController.swift */; };
 		9EB5CE9C298D37A2005B4A7C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CE9B298D37A2005B4A7C /* MainViewController.swift */; };
 		9EB5CE9E298D37AF005B4A7C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5CE9D298D37AF005B4A7C /* SearchViewController.swift */; };
@@ -115,6 +118,9 @@
 		9E55BE78299590DA00E40754 /* DiaryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9E66B32729909B6100D22126 /* BaseFrame.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BaseFrame.xcodeproj; path = BaseFrame/BaseFrame.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9E66B33329909D7C00D22126 /* reuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reuseIdentifier.swift; sourceTree = "<group>"; };
+		9E7032AC299C69A100101AD1 /* SearchMountainsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMountainsView.swift; sourceTree = "<group>"; };
+		9E7032AE299C6B5300101AD1 /* SearchMountainsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMountainsTableViewCell.swift; sourceTree = "<group>"; };
+		9E7032B0299C6F3400101AD1 /* SearchBar + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBar + Extension.swift"; sourceTree = "<group>"; };
 		9EB5CE99298D375F005B4A7C /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		9EB5CE9B298D37A2005B4A7C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9EB5CE9D298D37AF005B4A7C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -388,9 +394,9 @@
 			isa = PBXGroup;
 			children = (
 				9ED07F30299B7B16002A1774 /* SearchMountains */,
-				9ED07F2629959C3E002A1774 /* TableViewCell */,
 				9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */,
 				9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */,
+				9ED07F2629959C3E002A1774 /* TableViewCell */,
 				9ED07F33299B8444002A1774 /* Extension */,
 			);
 			path = DiaryDetail;
@@ -527,6 +533,8 @@
 			isa = PBXGroup;
 			children = (
 				9ED07F3E299BA320002A1774 /* SearchMountainsViewController.swift */,
+				9E7032AC299C69A100101AD1 /* SearchMountainsView.swift */,
+				9E7032AE299C6B5300101AD1 /* SearchMountainsTableViewCell.swift */,
 			);
 			path = SearchMountains;
 			sourceTree = "<group>";
@@ -536,6 +544,7 @@
 			children = (
 				9ED07F31299B8436002A1774 /* Camera + Extension.swift */,
 				9ED07F2E299B2BBE002A1774 /* Text + Extension.swift */,
+				9E7032B0299C6F3400101AD1 /* SearchBar + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -661,6 +670,7 @@
 				9EB5CF02298DEEE4005B4A7C /* SearchView.swift in Sources */,
 				9EC5C10A2990DE8600B93BCB /* nearbyDetailViewController.swift in Sources */,
 				9EC5C1292993902600B93BCB /* SecondLaunchView.swift in Sources */,
+				9E7032B1299C6F3500101AD1 /* SearchBar + Extension.swift in Sources */,
 				9E55BE79299590DA00E40754 /* DiaryDetailTableViewCell.swift in Sources */,
 				9EC5C12F29948C6200B93BCB /* Search + Extension.swift in Sources */,
 				9EB5CF0D298E1FA3005B4A7C /* DetailView.swift in Sources */,
@@ -675,6 +685,7 @@
 				9EB5CF25298E50E5005B4A7C /* Endpoint.swift in Sources */,
 				9EB5CF41298FA348005B4A7C /* OnboardingHelper.swift in Sources */,
 				9E03DCF3298D1C66006381E5 /* AppDelegate.swift in Sources */,
+				9E7032AD299C69A200101AD1 /* SearchMountainsView.swift in Sources */,
 				9EB5CF19298E30EC005B4A7C /* DiaryDetailView.swift in Sources */,
 				9EC5C11F29921E9500B93BCB /* CoreLocationExtension.swift in Sources */,
 				9ED07F3F299BA320002A1774 /* SearchMountainsViewController.swift in Sources */,
@@ -700,6 +711,7 @@
 				9EB5CF23298E4CE6005B4A7C /* APIKey.swift in Sources */,
 				9EB5CF2D298E6D54005B4A7C /* LaunchViewController.swift in Sources */,
 				9EC5C1182991D6F600B93BCB /* Constant.swift in Sources */,
+				9E7032AF299C6B5300101AD1 /* SearchMountainsTableViewCell.swift in Sources */,
 				9EC5C1102990DF5200B93BCB /* Font.swift in Sources */,
 				9EB5CF34298E6F7E005B4A7C /* MountainModel.swift in Sources */,
 				9EC5C12D2993A25A00B93BCB /* TableCollectionViewCell.swift in Sources */,

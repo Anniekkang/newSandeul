@@ -7,15 +7,15 @@
 
 import UIKit
 
-extension DiaryDetailViewController : UISearchBarDelegate {
-   
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let nav = SearchMountainsViewController()
-        self.navigationController?.present(nav, animated: true)
-        return true
-    }
-    
-}
+//extension DiaryDetailViewController : UISearchBarDelegate {
+//   
+//    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+//        let nav = SearchMountainsViewController()
+//        self.navigationController?.present(nav, animated: true)
+//        return true
+//    }
+//    
+//}
 
 extension DiaryDetailViewController : UITextViewDelegate {
     

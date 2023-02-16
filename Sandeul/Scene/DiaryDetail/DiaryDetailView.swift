@@ -17,18 +17,18 @@ class DiaryDetailView: BaseView {
         return view
     }()
     
-    let searchBar : UISearchBar = {
-       let bar = UISearchBar()
-        bar.placeholder = "일정을 등록할 산 이름을 검색하세요"
-        bar.searchBarStyle = .minimal
-        bar.keyboardType = .emailAddress
-        bar.searchTextField.backgroundColor = Color.shared.white
-        bar.searchTextField.textColor = Color.shared.Green
-        bar.isTranslucent = false
-        bar.sizeToFit()
-        
-        return bar
-    }()
+//    let searchBar : UISearchBar = {
+//       let bar = UISearchBar()
+//        bar.placeholder = "일정을 등록할 산 이름을 검색하세요"
+//        bar.searchBarStyle = .minimal
+//        bar.keyboardType = .emailAddress
+//        bar.searchTextField.backgroundColor = Color.shared.white
+//        bar.searchTextField.textColor = Color.shared.Green
+//        bar.isTranslucent = false
+//        bar.sizeToFit()
+//
+//        return bar
+//    }()
     
     
     let tableView : UITableView = {
@@ -39,7 +39,7 @@ class DiaryDetailView: BaseView {
     }()
 
     override func configure() {
-        [tableView,lineView,searchBar].forEach {
+        [tableView,lineView].forEach {
             self.addSubview($0)
         }
         
@@ -54,14 +54,14 @@ class DiaryDetailView: BaseView {
         }
         
         
-        searchBar.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom).offset(20)
-            make.height.equalTo(40)
-            make.leading.trailing.equalToSuperview().inset(10)
-        }
-     
+//        searchBar.snp.makeConstraints { make in
+//            make.top.equalTo(lineView.snp.bottom).offset(20)
+//            make.height.equalTo(40)
+//            make.leading.trailing.equalToSuperview().inset(10)
+//        }
+//
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(20)
+            make.top.equalTo(safeAreaLayoutGuide).offset(20)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
