@@ -17,18 +17,16 @@ class DiaryDetailView: BaseView {
         return view
     }()
     
-//    let searchBar : UISearchBar = {
-//       let bar = UISearchBar()
-//        bar.placeholder = "일정을 등록할 산 이름을 검색하세요"
-//        bar.searchBarStyle = .minimal
-//        bar.keyboardType = .emailAddress
-//        bar.searchTextField.backgroundColor = Color.shared.white
-//        bar.searchTextField.textColor = Color.shared.Green
-//        bar.isTranslucent = false
-//        bar.sizeToFit()
-//
-//        return bar
-//    }()
+    let search : UISearchController = {
+        let searchController = UISearchController(searchResultsController: SearchMountainsViewController())
+        searchController.searchBar.placeholder = "산 이름을 검색하시오"
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchBar.backgroundColor = Color.shared.Gray
+        //searchController.searchResultsUpdater = DiaryDetailViewController()
+        searchController.searchBar.showsScopeBar = true
+        return searchController
+    }()
+    
     
     
     let tableView : UITableView = {
@@ -39,7 +37,7 @@ class DiaryDetailView: BaseView {
     }()
 
     override func configure() {
-        [tableView,lineView].forEach {
+        [tableView,lineView,search.searchBar].forEach {
             self.addSubview($0)
         }
         
@@ -47,21 +45,14 @@ class DiaryDetailView: BaseView {
     
     override func constraints() {
        
-        lineView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide)
-            make.height.equalTo(1)
+        search.searchBar.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(10)
+            make.height.equalTo(50)
             make.leading.trailing.equalToSuperview()
         }
-        
-        
-//        searchBar.snp.makeConstraints { make in
-//            make.top.equalTo(lineView.snp.bottom).offset(20)
-//            make.height.equalTo(40)
-//            make.leading.trailing.equalToSuperview().inset(10)
-//        }
-//
+    
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(search.searchBar.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }

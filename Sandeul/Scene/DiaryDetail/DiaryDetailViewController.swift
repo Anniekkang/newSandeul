@@ -32,7 +32,7 @@ class DiaryDetailViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     
@@ -43,7 +43,7 @@ class DiaryDetailViewController: BaseViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.standardAppearance = scrollNavDesign()
         self.navigationController?.navigationBar.scrollEdgeAppearance = scrollNavDesign()
-        self.navigationController?.navigationBar.compactAppearance = scrollNavDesign()
+        //self.navigationController?.navigationBar.compactAppearance = scrollNavDesign()
         
     }
     
@@ -51,13 +51,12 @@ class DiaryDetailViewController: BaseViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.backgroundColor = Color.shared.white
-        //self.navigationController?.navigationBar.prefersLargeTitles = false
-        searchBarSetup()
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         return appearance
     }
     
     @objc func cancelButtonTapped() {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func submitButtonTapped() {

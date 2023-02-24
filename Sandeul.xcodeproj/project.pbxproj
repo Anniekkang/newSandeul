@@ -393,11 +393,11 @@
 		9EB5CF10298E309E005B4A7C /* DiaryDetail */ = {
 			isa = PBXGroup;
 			children = (
+				9ED07F33299B8444002A1774 /* Extension */,
+				9ED07F2629959C3E002A1774 /* TableViewCell */,
 				9ED07F30299B7B16002A1774 /* SearchMountains */,
 				9EB5CF18298E30EC005B4A7C /* DiaryDetailView.swift */,
 				9EB5CF1A298E30F7005B4A7C /* DiaryDetailViewController.swift */,
-				9ED07F2629959C3E002A1774 /* TableViewCell */,
-				9ED07F33299B8444002A1774 /* Extension */,
 			);
 			path = DiaryDetail;
 			sourceTree = "<group>";

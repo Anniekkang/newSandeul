@@ -19,8 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: Scene)
         let nav = UINavigationController(rootViewController: OnboardViewController())
         
-        window?.overrideUserInterfaceStyle = .light
+        window?.overrideUserInterfaceStyle = .light //darkmode 대응
 
+        
+        
         if SetUserdefaults.isFirstTime() {
             window?.rootViewController = nav //true
         } else {

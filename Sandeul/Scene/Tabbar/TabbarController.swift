@@ -13,7 +13,8 @@ class TabbarController : UITabBarController {
         super.viewDidLoad()
         
         configuration()
-        self.tabBar.backgroundColor = .white
+        
+     
         
     }
     func configuration(){
