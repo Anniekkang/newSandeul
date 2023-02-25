@@ -137,7 +137,7 @@ extension MainViewController : UICollectionViewDelegate, UICollectionViewDataSou
             }
                 cell.titleLabel.text = highestMountains.last?.title
                 cell.locationLabel.text = LaunchViewController.currentLocation
-                cell.heightLabel.text = "\(highestMountains.last!.altitude) m"
+            cell.heightLabel.text = "\(highestMountains.last!.altitude) m"
                 cell.mountainView.image = UIImage(named: array[5])
             
             

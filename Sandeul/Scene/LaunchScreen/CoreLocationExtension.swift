@@ -39,6 +39,9 @@ extension LaunchViewController : CLLocationManagerDelegate {
                                       completion: nil)
            } else {
                LaunchViewController.currentLocation = (place?.last?.administrativeArea)!
+               if LaunchViewController.currentLocation == "제주특별자치도" {
+                   LaunchViewController.currentLocation = "제주도"
+               }
                print("currentLocation : \(LaunchViewController.currentLocation)")
            }
         }
